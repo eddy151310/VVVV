@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\src\main\shaders"/></dataSet><dataSet config="devtest"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\src\devtest\shaders"/></dataSet><dataSet config="debug"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\src\debug\shaders"/></dataSet><dataSet config="devtestDebug"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\src\devtestDebug\shaders"/></dataSet></merger>

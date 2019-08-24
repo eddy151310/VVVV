@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.visen.demo"
+    android:versionCode="6"
+    android:versionName="1.0.5" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="27" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <!-- 指纹识别权限 -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+
+    <application
+        android:name="com.ahdi.wallet.GlobalApplication"
+        android:allowBackup="false"
+        android:debuggable="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:resizeableActivity="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppCommonTheme" >
+
+        <!-- 百度定位sdk  AK  对应包名  com.visen.demo -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="rGUnDGEXUcZONEzZeV8f5p0tQiuS9p5h" >
+        </meta-data>
+
+        <!-- 百度定位sdk -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name="com.ahdi.wallet.app.ui.aaaa.LoginActivity2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.aaaa.ServiceDetailsActivity2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartAppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.AppMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.PayQRCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.ReceiveSetAmountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+
+        <!-- 获取iid -->
+        <receiver android:name="com.ahdi.wallet.receiver.ReceiverObtainIID" >
+            <intent-filter>
+                <action android:name="action_qrindo.lib.obtainIID.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 获取fcm推送的消息 -->
+        <receiver android:name="com.ahdi.wallet.receiver.ReceiverPushMsg" >
+            <intent-filter>
+                <action android:name="action_qrindo.lib.PushMsg.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.EndingScanCopyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.scanMerchant.EndingScanWebActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="CHANNEL"
+            android:value="devtest" />
+
+        <!-- 新加的Activity -->
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.poi.PoiSearchActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 处理通知栏点击事件 -->
+        <receiver android:name="com.ahdi.wallet.receiver.ReceiverNotification" />
+
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.loginPwd.ForgetPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.signup.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.signup.SigupVerifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.login.LoginVerifyCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.signup.SetLoginPwdActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.ReceiveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.balance.BalanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.withdraw.ui.activities.EndingWithdrawActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.msg.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.EndingPayCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.transfer.ui.activities.TransPayConfirmActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.transfer.ui.activities.TransferMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.withdraw.ui.activities.WithdrawActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.topup.ui.activities.TopUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.topup.ui.activities.TopUpInputAmountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankCard.BankCardsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankCard.BankCardDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankCard.BindCardTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.BankAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.ManageBankAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.transfer.ui.activities.EndingTransferActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.payPwd.PayPwdGuideSetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.payPwd.PayPwdModifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.zbar.CaptureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.withdraw.ui.activities.SelectWDAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.payment.topup.ui.activities.EndingRechrActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.AddBankAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.SelectBankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.EndingBindAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankAccount.BankAccountEnterPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.PayCodeVerifyPINActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+        <activity
+            android:name="com.ahdi.wallet.module.QRCode.ui.activities.PayCodeBcaOTPActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- *****************************收银台 start *************************** -->
+        <activity
+            android:name="com.ahdi.wallet.cashier.ui.activities.PayHubActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PayHubTheme" />
+        <activity
+            android:name="com.ahdi.wallet.cashier.ui.activities.PayModeSelectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PayHubTheme" />
+        <activity
+            android:name="com.ahdi.wallet.cashier.ui.activities.PayVerifyPINActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PayHubTheme" />
+        <activity
+            android:name="com.ahdi.wallet.cashier.ui.activities.PayhubBcaOTPActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PayHubTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- *****************************收银台 end *************************** -->
+
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankCard.BankCardPayWebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.bankCard.BankCardEnterPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.CheckPayPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.transList.TransListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.lib.utils.takephoto.activity.TakePhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.lib.utils.takephoto.activity.TakePhotoResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.IDAuth.IDAuthActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.IDAuth.EndingIDVerifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.IDAuth.IdInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.userInfo.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.userInfo.ModifyUserInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.ahdi.lib.utils.takephoto.activity.PhotoMangerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/PayHubTheme" />
+        <activity
+            android:name="com.ahdi.lib.utils.base.WebCommonActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.loginPwd.ResetLoginPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.loginPwd.NewLoginPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.loginPwd.ConfirmLoginPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.loginPwd.ForgetPwdVerifyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.payPwd.ForgetPayPwdVerifyActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- android 7.0拍照 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.visen.demo.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.scanMerchant.EndingScanMerchantActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.userInfo.UserInfoSetActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.login.PhoneAreaCodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.bca.ui.activities.BCAXCOActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.WebBannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.other.LanguageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.biometric.TouchIDActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.biometric.TouchIDLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.biometric.GuideTouchIDUnlockActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.biometric.GuideTouchIDPayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.voucher.VoucherListActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.activities.voucher.VoucherDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

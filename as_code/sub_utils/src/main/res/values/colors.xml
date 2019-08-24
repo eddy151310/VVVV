@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 马拉松新标准颜色 -->
+    <!--全透明就是00，完全不透明就是FF-->
+    <color name="CC_00000000">#00000000</color><!--100%透明-->
+    <color name="CC_B31A1B24">#B31A1B24</color><!--30%透明度-->
+    <color name="CC_991A1B24">#991A1B24</color><!--40%透明度-->
+    <color name="CC_801A1B24">#801A1B24</color><!--50%透明度-->
+    <color name="CC_1A1A1B24">#1A1A1B24</color><!--90%透明度-->
+    <color name="CC_1A919399">#1A919399</color><!--90%透明度-->
+    <color name="CC_99FFFFFF">#99FFFFFF</color><!--40%透明度-->
+    <color name="CC_26FFFFFF">#26FFFFFF</color><!--85%透明度 pay码界面 receive code按钮背景白色-->
+    <color name="CC_4DFFFFFF">#4DFFFFFF</color><!--70%透明度 pay码界面 receive code按钮背景白色-->
+    <color name="CC_1A1B24E5">#1A1B24E5</color>
+    <color name="CC_1AD63031">#1AD63031</color> <!--90%透明度-->
+
+    <color name="CC_1A1B24">#1A1B24</color>
+    <color name="CC_282934">#282934</color>
+    <color name="CC_3E4050">#3E4050</color>
+    <color name="CC_5F5F67">#5F5F67</color>
+    <color name="CC_919399">#919399</color>
+    <color name="CC_BEBEC0">#BEBEC0</color>
+    <color name="CC_E6E6E9">#E6E6E9</color><!--手指按下颜色, 统一分割线-->
+    <color name="CC_EFEFF1">#EFEFF1</color>
+    <color name="CC_F1F2F6">#F1F2F6</color><!--通用的界面背景色-->
+    <color name="CC_FFFFFF">#FFFFFF</color>
+    <color name="CC_E26E6E">#E26E6E</color>
+    <color name="CC_D63031">#D63031</color> <!--渐变颜色上-->
+    <color name="CC_C31617">#C31617</color> <!--渐变颜色下-->
+    <color name="CC_F3F4F6">#F3F4F6</color> <!--收银台和pay码选择支付方式条目不可点击颜色-->
+
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+</resources>

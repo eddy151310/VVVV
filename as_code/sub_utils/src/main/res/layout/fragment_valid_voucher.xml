@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_F1F2F6"
+    android:orientation="vertical">
+
+    <!--列表-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/list_fresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.ahdi.lib.utils.widgets.custom.RefreshRecyclerView
+            android:id="@+id/trans_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <!--没有数据的提示文案-->
+    <LinearLayout
+        android:id="@+id/list_no_data_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_100"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_statue"
+            android:layout_width="@dimen/dp_175"
+            android:layout_height="@dimen/dp_175"
+            android:background="@mipmap/voucher_list_empty" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:gravity="center_horizontal"
+            android:text="@string/VoucherList_D0"
+            android:textColor="@color/CC_3E4050"
+            android:textSize="@dimen/text_size_15" />
+    </LinearLayout>
+
+</RelativeLayout>

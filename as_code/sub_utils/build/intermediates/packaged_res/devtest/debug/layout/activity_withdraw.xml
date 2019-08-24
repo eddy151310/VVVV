@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_F1F2F6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title_common" />
+
+    <!--卡信息区域-->
+    <RelativeLayout
+        android:id="@+id/card_info_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:background="@drawable/selector_bg_common_item"
+        android:padding="@dimen/dp_15">
+
+        <ImageView
+            android:id="@+id/iv_withdraw_icon_bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/balance_withdraw_icon_bank" />
+
+        <RelativeLayout
+            android:id="@+id/rl_bank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_toLeftOf="@+id/iv_arrow"
+            android:layout_toRightOf="@+id/iv_withdraw_icon_bank"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/WithdrawConfirm_B0"
+                android:textColor="@color/CC_1A1B24"
+                android:textSize="@dimen/text_size_15" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_card_title"
+                android:layout_marginTop="@dimen/dp_5">
+
+                <TextView
+                    android:id="@+id/tv_bank_account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/dp_180"
+                    android:singleLine="true"
+                    android:textColor="@color/CC_5F5F67"
+                    android:textSize="@dimen/text_size_12" />
+
+                <TextView
+                    android:id="@+id/tv_bank_account_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_toRightOf="@+id/tv_bank_account_name"
+                    android:maxLines="1"
+                    android:textColor="@color/CC_5F5F67"
+                    android:textSize="@dimen/text_size_12" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            style="@style/common_right_arrow_style"
+            android:paddingRight="0dp" />
+
+    </RelativeLayout>
+
+    <!--输入金额布局-->
+    <LinearLayout
+        android:id="@+id/input_amount_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_info_area"
+        android:background="@color/CC_FFFFFF"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_15"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_15"
+        android:paddingBottom="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_amount_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/WithdrawConfirm_C0"
+            android:textColor="@color/CC_1A1B24"
+            android:textSize="@dimen/text_size_15" />
+
+        <!--输入金额-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_rp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Rp."
+                android:textColor="@color/CC_1A1B24"
+                android:textSize="@dimen/text_size_15" />
+
+            <EditText
+                android:id="@+id/edt_withdraw_amount"
+                style="@style/normal_editText_style"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_rp"
+                android:drawablePadding="@dimen/dp_15"
+                android:hint="@string/WithdrawConfirm_K0"
+                android:paddingLeft="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_15"
+                android:paddingBottom="@dimen/dp_10"
+                android:textSize="@dimen/text_size_20" />
+
+            <ImageView
+                android:id="@+id/iv_edt_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_5"
+                android:paddingBottom="@dimen/dp_5"
+                android:src="@mipmap/common_clear_edt"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!--提示文案区域-->
+    <RelativeLayout
+        android:id="@+id/re_withdraw_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_amount_area"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15">
+
+        <RelativeLayout
+            android:id="@+id/re_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tv_withdraw_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_10"
+                android:textColor="@color/CC_5F5F67"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tv_withdraw_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_withdraw_tip"
+                android:paddingLeft="@dimen/dp_5"
+                android:paddingTop="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_15"
+                android:paddingBottom="@dimen/dp_15"
+                android:text="@string/WithdrawConfirm_E0"
+                android:textColor="@color/common_link_text_color_red"
+                android:textSize="@dimen/text_size_14" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/re_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_service_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/WithdrawConfirm_F0"
+                android:textColor="@color/CC_5F5F67"
+                android:textSize="@dimen/text_size_14" />
+
+            <TextView
+                android:id="@+id/tv_total_deduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_service_fee"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/WithdrawConfirm_G0"
+                android:textColor="@color/CC_5F5F67"
+                android:textSize="@dimen/text_size_14" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        style="@style/btn_sure"
+        android:layout_below="@id/re_withdraw_tip"
+        android:layout_marginTop="@dimen/dp_25"
+        android:enabled="false"
+        android:text="@string/WithdrawConfirm_J0" />
+
+    <com.ahdi.lib.utils.widgets.keyboard.MyKeyBoardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/CC_FFFFFF"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@drawable/keyboard_item_bg"
+        android:keyTextColor="@color/CC_1A1B24"
+        android:keyTextSize="@dimen/text_size_24"
+        android:shadowRadius="0"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/view_keyboard"
+        style="@style/line_style"
+        android:layout_above="@id/keyboard_view"
+        android:visibility="gone" />
+
+</RelativeLayout>

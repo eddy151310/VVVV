@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_FFFFFF">
+
+    <include
+        android:id="@+id/ending_title"
+        layout="@layout/layout_title_common" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ending_title"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20">
+
+            <!--结果展示页面-->
+            <LinearLayout
+                android:id="@+id/root_view_query_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/icon_pay_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:src="@mipmap/common_ending_success" />
+
+                <TextView
+                    android:id="@+id/tv_pay_state_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:gravity="center"
+                    android:textColor="@color/CC_1A1B24"
+                    android:textSize="@dimen/text_size_20" />
+
+                <TextView
+                    android:id="@+id/tv_pay_tips_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/CC_5F5F67"
+                    android:textSize="@dimen/text_size_15"
+                    android:visibility="gone" />
+
+                <View
+                    style="@style/line_style"
+                    android:layout_marginTop="@dimen/dp_20" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/ending_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:divider="@color/CC_00000000"
+                        android:fastScrollEnabled="false"
+                        android:scrollbars="none" />
+
+                    <Button
+                        android:id="@+id/btn_confirm"
+                        style="@style/btn_sure"
+                        android:layout_below="@+id/ending_recycler_view"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="@dimen/dp_25"
+                        android:text="@string/WithdrawEnding_G0" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--异常页面-->
+            <LinearLayout
+                android:id="@+id/root_view_query_exception"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/icon_pay_result_except"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@mipmap/common_ending_abnormal" />
+
+                <TextView
+                    android:id="@+id/tv_pay_tips_except"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:gravity="center"
+                    android:textColor="@color/CC_5F5F67"
+                    android:textSize="@dimen/text_size_15" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_cancel_except"
+                        style="@style/btn_sure"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="@dimen/dp_5"
+                        android:text="@string/WithdrawEnding_I0" />
+
+                    <Button
+                        android:id="@+id/btn_try_again_except"
+                        style="@style/btn_sure"
+                        android:layout_width="0dp"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/WithdrawEnding_H0" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+    </ScrollView>
+</RelativeLayout>

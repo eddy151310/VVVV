@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title_common" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--用户信息区域-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@mipmap/home_account_info_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:layout_marginTop="@dimen/dp_25"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_user_icon"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:src="@mipmap/home_user_avatar" />
+
+                    <TextView
+                        android:id="@+id/tv_lName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:gravity="center"
+                        android:textColor="@color/CC_FFFFFF"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_30"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_30"
+                    android:layout_marginBottom="@dimen/dp_25" >
+
+                    <TextView
+                        android:id="@+id/tv_today_transaction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="------"
+                        android:textColor="@color/CC_FFFFFF"
+                        android:textSize="@dimen/text_size_24" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_eye"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp_28"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/tv_today_transaction"
+                        android:paddingLeft="@dimen/dp_10"
+                        android:paddingRight="@dimen/dp_10"
+                        android:src="@mipmap/common_eye_show_white" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--功能区域  这个高度不用写死-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_10"
+                android:paddingRight="@dimen/dp_10">
+
+                <RelativeLayout
+                    android:id="@+id/rl_scan_qr"
+                    style="@style/home_re_style">
+
+                    <ImageView
+                        android:id="@+id/iv_scan_qr"
+                        style="@style/home_iv_style"
+                        android:background="@mipmap/home_icon_scan" />
+
+                    <TextView
+                        style="@style/home_text_style"
+                        android:layout_below="@id/iv_scan_qr"
+                        android:text="@string/AppHome_B0" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_my_qr"
+                    style="@style/home_re_style">
+
+                    <ImageView
+                        android:id="@+id/iv_my_qr"
+                        style="@style/home_iv_style"
+                        android:background="@mipmap/home_icon_my_qr" />
+
+                    <TextView
+                        style="@style/home_text_style"
+                        android:layout_below="@id/iv_my_qr"
+                        android:text="@string/AppHome_C0" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_topup"
+                    style="@style/home_re_style">
+
+                    <ImageView
+                        android:id="@+id/iv_topup"
+                        style="@style/home_iv_style"
+                        android:background="@mipmap/home_icon_topup" />
+
+                    <TextView
+                        style="@style/home_text_style"
+                        android:layout_below="@id/iv_topup"
+                        android:text="@string/AppHome_D0" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_transaction"
+                    style="@style/home_re_style">
+
+                    <ImageView
+                        android:id="@+id/iv_transaction"
+                        style="@style/home_iv_style"
+                        android:background="@mipmap/home_icon_transactions" />
+
+                    <TextView
+                        style="@style/home_text_style"
+                        android:layout_below="@id/iv_transaction"
+                        android:text="@string/AppHome_E0" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_15"
+                android:background="@color/CC_F1F2F6"/>
+
+            <!--所有活动按钮区域-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AppHome_F0"
+                    android:textSize="@dimen/text_size_15"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/CC_1A1B24"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AppHome_G0"
+                        android:textColor="@color/CC_3E4050"
+                        android:textSize="@dimen/text_size_12"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/common_list_arrow_right"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!--滚动的banner-->
+            <com.ahdi.lib.utils.widgets.banner.Banner
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                app:banner_pointDrawable="@drawable/selector_banner_indicator"
+                app:banner_pointGravity="center_horizontal"
+                app:banner_pointTopBottomMargin="@dimen/dp_10"
+                app:banner_pointLeftRightMargin="@dimen/dp_4"
+                app:banner_default_image="@mipmap/home_scroll_banner"/>
+
+            <!--banner-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_20"
+                android:orientation="horizontal">
+
+                <com.ahdi.lib.utils.widgets.RatioImageView
+                    android:id="@+id/iv_banner_left"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    app:design_width="495"
+                    app:design_height="240"
+                    android:src="@mipmap/home_bottom_banner" />
+
+                <com.ahdi.lib.utils.widgets.RatioImageView
+                    android:id="@+id/iv_banner_right"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    app:design_width="495"
+                    app:design_height="240"
+                    android:src="@mipmap/home_bottom_banner" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

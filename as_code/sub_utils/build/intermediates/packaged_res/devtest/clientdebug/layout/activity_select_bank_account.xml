@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_F1F2F6"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title_common" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/bank_account_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_15"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:background="@color/CC_FFFFFF" />
+
+            <include
+                android:id="@+id/layout_add_card_view"
+                layout="@layout/layout_add_card_app" />
+
+            <TextView
+                android:id="@+id/tv_bank_account_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_15"
+                android:lineSpacingMultiplier="1.5"
+                android:text="@string/WithdrawSelectAccount_C0"
+                android:textColor="@color/CC_5F5F67"
+                android:textSize="@dimen/text_size_12" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

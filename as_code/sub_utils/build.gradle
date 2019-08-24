@@ -1,0 +1,92 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        flavorDimensions rootProject.ext.flavorDimensions
+    }
+
+    buildTypes {
+        clientdebug {
+            debuggable true
+            buildConfigField "boolean", "crash_log", crash_log_false
+        }
+        debug {
+            buildConfigField "boolean", "crash_log", crash_log_true
+        }
+        release {
+            buildConfigField "boolean", "crash_log", crash_log_true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    productFlavors {
+        devtest {
+            buildConfigField "boolean", "debug_log", test_debug_log
+            buildConfigField "String", "url", test_url
+            buildConfigField "int", "bca_rsa_publicKey_id", test_bca_rsa_publicKey_id
+            buildConfigField "String", "bca_rsa_publicKey", test_bca_rsa_publicKey
+            buildConfigField "String", "pay_password_rsa", test_pay_password_rsa
+            buildConfigField "String", "pay_password_rsa_id_prefix", test_pay_password_rsa_id_prefix
+            buildConfigField "String", "login_password_rsa", test_login_password_rsa
+            buildConfigField "String", "login_password_rsa_id_prefix", test_login_password_rsa_id_prefix
+        }
+        sandbox {
+            buildConfigField "boolean", "debug_log", sandbox_debug_log
+            buildConfigField "String", "url", sandbox_url
+            buildConfigField "int", "bca_rsa_publicKey_id", sandbox_bca_rsa_publicKey_id
+            buildConfigField "String", "bca_rsa_publicKey", sandbox_bca_rsa_publicKey
+            buildConfigField "String", "pay_password_rsa", sandbox_pay_password_rsa
+            buildConfigField "String", "pay_password_rsa_id_prefix", sandbox_pay_password_rsa_id_prefix
+            buildConfigField "String", "login_password_rsa", sandbox_login_password_rsa
+            buildConfigField "String", "login_password_rsa_id_prefix", sandbox_login_password_rsa_id_prefix
+        }
+        online {
+            buildConfigField "boolean", "debug_log", online_debug_log
+            buildConfigField "String", "url", online_url
+            buildConfigField "int", "bca_rsa_publicKey_id", online_bca_rsa_publicKey_id
+            buildConfigField "String", "bca_rsa_publicKey", online_bca_rsa_publicKey
+            buildConfigField "String", "pay_password_rsa", online_pay_password_rsa
+            buildConfigField "String", "pay_password_rsa_id_prefix", online_pay_password_rsa_id_prefix
+            buildConfigField "String", "login_password_rsa", online_login_password_rsa
+            buildConfigField "String", "login_password_rsa_id_prefix", online_login_password_rsa_id_prefix
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:appcompat-v7:27.0.2'
+    api 'com.android.support:recyclerview-v7:27.0.2'
+    api 'com.github.bumptech.glide:glide:4.6.1'
+
+    //baidu 定位sdk
+    api files('libs/BaiduLBS_Android.jar')
+
+    // zxing生成与解析二维码
+    api files('libs/core-3.1.1-SNAPSHOT.jar')
+    api files('libs/bcprov-jdk15on-1.59.jar')
+    api files('libs/pinyin4j-2.5.0.jar')
+    // 友盟
+    api files('libs/umeng-analytics-7.5.3.jar')
+    api files('libs/umeng-common-1.5.3.jar')
+    // zbar解析二维码
+    api files('libs/zbardecoder.jar')
+    // BCA widget
+    api files('libs/BCAXCOWidget.aar')
+    api 'com.google.android.gms:play-services-base:16.0.1'
+    api 'com.alibaba:fastjson:1.2.58'
+}

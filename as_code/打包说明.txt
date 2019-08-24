@@ -1,0 +1,37 @@
+
+在gradle.properties文件中配置对应的打包环境, 同步项目.
+在AndroidStudio的Terminal中输入以下打包命令, 进行编译打包apk.
+打包命令
+	Windows OS: 
+        		gradlew assembleDevtestDebug  ------------单独打包 devtest 测试环境的 apk, 测试包, 默认使用debug 签名未混淆
+        		gradlew assembleSandboxDebug  ------------单独打包 sandbox 沙盒环境的 apk, 沙盒包, 默认使用debug 签名未混淆
+        		gradlew assembleOnlineRelease ------------单独打包 online  现网环境的 apk, 发布包, 使用 release 签名已混淆.
+        	Mac OS:
+        		./gradlew assembleDevtestDebug
+        		./gradlew assembleSandboxDebug
+        		./gradlew assembleOnlineRelease
+
+apk生成的路径:
+    1. 测试环境: xxx/as_code/app/build/outputs/apk/devtest/debug
+    2. 沙盒环境: xxx/as_code/app/build/outputs/apk/sandbox/debug
+    3. 现网环境: xxx/as_code/app/build/outputs/apk/online/release
+
+AndroidStudio版本3.0.1 gradle版本 4.4 gradle插件版本为 3.1.2
+
+---在使用as run apk时, 在as右边框下边打开Build Variants 选择构建的类型.
+------devtestDebug : 测试环境
+------sandboxDebug : 沙盒环境
+-------onlineDebug : 现网环境
+
+
+=====================================================================
+注意事项:
+1. 首次在as打开项目时, 检查一下Build Variants的构建类型.
+
+2. 如果修改app java 下面的目录结构, 同时要一起修改ActivityManager "com.ahdi.wallet.ui.activities.AppMainActivity"
+
+3. 如果修改action命名规范时, 需要同时修改注册广播接收者intent-filter的action, 不然会出现收到推送没显示到通知栏的问题.
+     3.1 获取iid.
+     3.2 获取fcm推送的消息: 账号被挤 交易转账.
+     3.3 添加银行账户时, 选择银行列表的数据更新.
+

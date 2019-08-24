@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_FFFFFF">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title_common" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartrefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        app:srlEnableAutoLoadMore="false"
+        app:srlEnableHeaderTranslationContent="false"
+        app:srlEnableLoadMore="false"
+        app:srlEnableNestedScrolling="true"
+        app:srlEnableOverScrollBounce="false"
+        app:srlEnableOverScrollDrag="false"
+        app:srlEnablePreviewInEditMode="false">
+
+        <com.ahdi.wallet.app.ui.fragments.home.fresh.MaterialHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <android.support.design.widget.CoordinatorLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.AppBarLayout
+                    android:id="@+id/appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:fitsSystemWindows="true">
+
+
+                    <android.support.design.widget.CollapsingToolbarLayout
+                        android:id="@+id/collapsing_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fitsSystemWindows="true"
+                        app:contentScrim="?attr/colorPrimary"
+                        app:expandedTitleMarginEnd="64dp"
+                        app:expandedTitleMarginStart="48dp"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <!--其他信息-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="100dip"
+                                android:background="@color/CC_C31617"/>
+
+                            <!--滚动的banner-->
+                            <com.ahdi.lib.utils.widgets.banner.Banner
+                                android:id="@+id/home_banner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:layout_marginRight="@dimen/dp_15"
+                                app:banner_default_image="@mipmap/home_scroll_banner"
+                                app:banner_pointDrawable="@drawable/selector_banner_indicator"
+                                app:banner_pointGravity="center_horizontal"
+                                app:banner_pointLeftRightMargin="@dimen/dp_4"
+                                app:banner_pointTopBottomMargin="@dimen/dp_10" />
+                        </LinearLayout>
+                    </android.support.design.widget.CollapsingToolbarLayout>
+
+
+                    <com.flyco.tablayout.SlidingTabLayout
+                        android:id="@+id/tablayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="#ccc"
+                        app:tl_indicator_color="#ccc"
+                        app:tl_indicator_corner_radius="5dp"
+                        app:tl_indicator_margin_left="2dp"
+                        app:tl_indicator_margin_right="2dp"
+                        app:tl_indicator_style="BLOCK"
+                        app:tl_textSelectColor="#f00"
+                        app:tl_textUnselectColor="#fff"
+                        app:tl_textsize="16sp" />
+
+                </android.support.design.widget.AppBarLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"></android.support.v4.view.ViewPager>
+
+            </android.support.design.widget.CoordinatorLayout>
+
+
+        </LinearLayout>
+        <!--<com.scwang.smartrefresh.layout.footer.ClassicsFooter-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:srlAccentColor="#888"-->
+        <!--app:srlClassicsSpinnerStyle="Translate"-->
+        <!--app:srlDrawableProgress="@drawable/ic_progress_puzzle"/>-->
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</RelativeLayout>

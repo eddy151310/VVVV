@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rl_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/CC_FFFFFF"
+    android:visibility="gone">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+   <com.ahdi.lib.utils.widgets.PagerIndicatorView
+       android:id="@+id/pager_indicator"
+       android:layout_width="wrap_content"
+       android:layout_height="@dimen/dp_4"
+       android:layout_centerHorizontal="true"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="@dimen/dp_55"
+       app:default_icon="@drawable/guide_indicator_default"
+       app:selected_icon="@drawable/guide_indicator_selected"
+       app:itemCount="1"
+       app:icon_right_margin="@dimen/dp_4"/>
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_55"
+        android:text="@string/AdsView_A0"
+        android:background="@drawable/selector_bg_guide_pager_btn"
+        android:textColor="@drawable/selector_color_btn"
+        android:textSize="@dimen/text_size_17"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>

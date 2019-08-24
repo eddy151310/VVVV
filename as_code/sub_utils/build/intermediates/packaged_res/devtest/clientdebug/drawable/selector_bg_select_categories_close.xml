@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 按下-->
+            <solid android:color="@color/CC_E6E6E9" />
+            <corners android:topLeftRadius="@dimen/dp_5"/>
+        </shape>
+    </item>
+
+
+    <item android:state_enabled="true" android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 正常-->
+            <solid android:color="@color/CC_FFFFFF" />
+            <corners android:topLeftRadius="@dimen/dp_5"/>
+        </shape>
+    </item>
+
+
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 btn 不可点击-->
+            <solid android:color="@color/CC_E6E6E9" />
+            <corners android:topLeftRadius="@dimen/dp_5"/>
+        </shape>
+    </item>
+
+    <item android:drawable="@android:color/transparent" />
+
+</selector>

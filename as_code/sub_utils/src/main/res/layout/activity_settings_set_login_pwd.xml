@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/CC_F1F2F6"
+              android:orientation="vertical">
+
+    <include layout="@layout/layout_title_common" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:background="@color/CC_FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tips1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/CC_282934"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/SettingLoginPwd_B0"
+            />
+
+        <TextView
+            android:id="@+id/tv_tip_text_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_30"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center"
+            android:textColor="@color/CC_282934"
+            android:textSize="@dimen/text_size_14" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/item_bg_style"
+        android:layout_marginTop="@dimen/dp_15">
+
+        <com.ahdi.lib.utils.widgets.DeleteEditText
+            android:id="@+id/et_set_login_pwd"
+            style="@style/normal_editText_style"
+            android:layout_width="0dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_weight="1"
+            android:hint="@string/SettingLoginPwd_D0"
+            android:maxLength="24"
+            android:textColor="@color/CC_1A1B24"
+            android:textColorHint="@color/CC_919399"
+            android:drawablePadding="@dimen/dp_15"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&#038;*()_+-=;':&#034;,./&#060;>?`"
+            android:paddingRight="@dimen/dp_10"/>
+
+        <ImageView
+            android:id="@+id/iv_eye_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_bg_common_pwd_show_hide"
+            android:paddingRight="@dimen/dp_15" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/set_login_pwd_btn_next"
+        style="@style/btn_sure"
+        android:layout_marginTop="@dimen/dp_30"
+        android:enabled="false"
+        android:text="@string/SettingLoginPwd_E0" />
+
+</LinearLayout>

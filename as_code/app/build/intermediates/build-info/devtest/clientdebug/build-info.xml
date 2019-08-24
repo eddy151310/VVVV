@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="26"
+    build-mode="FULL"
+    density="xxhdpi"
+    format="10"
+    plugin-version="3.1.2"
+    timestamp="1566616904433"
+    token="4079139559514355840"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\resources\instant-run\devtest\clientdebug\resources-devtest-clientdebug.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-24-112144.apk"
+        type="SPLIT_MAIN" />
+
+    <build
+        build-mode="FULL"
+        timestamp="1566616904433"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\resources\instant-run\devtest\clientdebug\resources-devtest-clientdebug.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-24-112144.apk"
+            type="SPLIT_MAIN" />
+    </build>
+
+</instant-run>

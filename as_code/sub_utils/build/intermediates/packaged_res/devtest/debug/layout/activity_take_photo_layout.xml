@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_1A1B24">
+
+    <com.ahdi.lib.utils.takephoto.widget.CameraSurfaceView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <com.ahdi.lib.utils.takephoto.widget.IDViewFinder
+        android:id="@+id/idViewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/iv_title_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_30"
+        android:src="@drawable/selector_btn_take_photo_close" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_centerInParent="true">
+
+        <com.ahdi.lib.utils.widgets.RectangleImageView
+            android:id="@+id/capture_crop_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_take_photo_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/capture_crop_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_30"
+            android:background="@drawable/tv_take_photo_tip"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_28"
+            android:paddingRight="@dimen/dp_28"
+            android:paddingTop="@dimen/dp_5"
+            android:textColor="@color/CC_FFFFFF"
+            android:text="@string/IdTakePhoto_A0"
+            android:textSize="@dimen/text_size_12" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/camera_take_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_35"
+        android:background="@mipmap/id_catch_photo" />
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/CC_801A1B24" />
+            <corners android:radius="@dimen/dp_100" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <!-- 填充的颜色 -->
+            <solid android:color="@color/CC_1A1B24" />
+            <corners android:radius="@dimen/dp_100" />
+        </shape>
+    </item>
+</level-list>

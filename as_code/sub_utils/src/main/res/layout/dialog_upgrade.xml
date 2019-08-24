@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="@dimen/dp_20"
+    android:layout_marginRight="@dimen/dp_20"
+    android:background="@drawable/common_rounded_white_bg"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_25"
+        android:gravity="center"
+        android:text="@string/DialogTitle_D0"
+        android:textColor="@color/CC_1A1B24"
+        android:textSize="@dimen/text_size_18" />
+
+    <!-- 文本 -->
+    <ScrollView
+        android:id="@+id/sv_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_dialog_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_25"
+            android:paddingRight="@dimen/dp_25"
+            android:textColor="@color/CC_282934"
+            android:textSize="@dimen/text_size_14" />
+
+    </ScrollView>
+
+    <!-- button-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/v_line"
+            style="@style/line_style"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/layout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_49"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_dialog_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/common_dialog_btn_left"
+                android:gravity="center"
+                android:text="@string/DialogButton_L0"
+                android:textColor="@color/CC_282934"
+                android:textSize="@dimen/text_size_17" />
+
+            <TextView
+                android:id="@+id/tv_dialog_confirm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/common_dialog_btn_right"
+                android:gravity="center"
+                android:text="@string/DialogButton_K0"
+                android:textColor="@color/CC_1A1B24"
+                android:textSize="@dimen/text_size_17" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_44"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/dp_25"
+            android:layout_marginRight="@dimen/dp_25"
+            android:background="@drawable/selector_bg_common_btn"
+            android:gravity="center"
+            android:text="@string/DialogButton_K0"
+            android:textColor="@drawable/selector_color_btn"
+            android:textSize="@dimen/text_size_17" />
+
+    </LinearLayout>
+
+</LinearLayout>

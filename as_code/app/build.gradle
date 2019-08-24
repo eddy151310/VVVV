@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        release {
+            keyAlias 'qrindo_key'
+            keyPassword 'ahdi.qrindo'
+            storeFile file('../ahdi_qrindo.jks')
+            storePassword 'ahdi.qrindo'
+        }
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId rootProject.ext.packageName
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        flavorDimensions rootProject.ext.flavorDimensions
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86" , "arm64-v8a" , "x86_64"
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        clientdebug{
+            debuggable true
+            signingConfig signingConfigs.release
+        }
+        //调试版本，无混淆
+        debug {
+            minifyEnabled false
+        }
+
+        //发布版本，有混淆
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            multiDexEnabled true
+        }
+
+        //多渠道打包配置
+        android.applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def fileName = "QRindo_v${defaultConfig.versionName}_${variant.productFlavors[0].name}_${releaseTime()}.apk"
+                    outputFileName = fileName
+                }
+            }
+        }
+    }
+
+    productFlavors {
+        //测试环境
+        devtest {}
+        //沙盒环境
+        sandbox {}
+        //现网环境
+        online {}
+    }
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [CHANNEL_VALUE: name] //动态地修改AndroidManifest中的渠道名
+    }
+
+}
+
+//生成打包时间
+static def releaseTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd-HHmmss')
+    return formattedDate
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation project(':sub_utils')
+
+
+    //自定义TabLayout
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //上拉加载下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-13'
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    implementation 'com.android.support:design:27.1.1'
+}

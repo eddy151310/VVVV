@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/CC_FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_55"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tip_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_9"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/GuideSetPayPWDPage1_B0"
+            android:textColor="@color/CC_282934"
+            android:textSize="@dimen/text_size_15" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/dp_55">
+
+            <!--昵称-->
+            <TextView
+                android:id="@+id/tv_tip_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/tv_tip_three"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/CC_1A1B24"
+                android:textSize="@dimen/text_size_15"
+                android:visibility="gone" />
+
+            <!--登录名-->
+            <TextView
+                android:id="@+id/tv_tip_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:maxLines="1"
+                android:textColor="@color/CC_1A1B24"
+                android:textSize="@dimen/text_size_15"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <!-- password 格子布局 -->
+        <include
+            android:id="@+id/pwd_layout"
+            layout="@layout/layout_edittext_pwd_common"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_forgot_pin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_30"
+            android:gravity="center"
+            android:text="@string/ModifyPayPWDCheckPayPWD_C0"
+            android:textColor="@color/common_link_text_color_black"
+            android:textSize="@dimen/text_size_14"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <com.ahdi.lib.utils.widgets.keyboard.MyKeyBoardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/CC_FFFFFF"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@drawable/keyboard_item_bg"
+        android:keyTextColor="@color/CC_1A1B24"
+        android:keyTextSize="@dimen/text_size_24"
+        android:shadowRadius="0"
+        android:visibility="gone" />
+
+    <View
+        style="@style/line_style"
+        android:layout_above="@id/keyboard_view"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

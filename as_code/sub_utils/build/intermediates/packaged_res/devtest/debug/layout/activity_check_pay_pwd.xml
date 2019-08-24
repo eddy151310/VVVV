@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/CC_F1F2F6">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/layout_title_common" />
+
+    <include
+        android:id="@+id/check_pay_pwd_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activity_check_pay_pwd_base" />
+
+</LinearLayout>
