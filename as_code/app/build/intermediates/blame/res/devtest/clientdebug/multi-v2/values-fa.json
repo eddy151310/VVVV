@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-fa\\values-fa.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-fa\\values-fa.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iapp\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\7e8ce4d7f4f5ee4f9d1b0dccbc6eb50e\\res\\values-fa\\values.xml",

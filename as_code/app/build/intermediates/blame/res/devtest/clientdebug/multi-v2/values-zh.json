@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iapp\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshLayout-1.1.0-alpha-13.aar\\e49b7a0d2ab080be45372617b14ecd4a\\res\\values-zh\\values-zh.xml",

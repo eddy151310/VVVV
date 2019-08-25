@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -61,7 +62,7 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
     private boolean isCountdowning = false;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ScreenAdaptionUtil.setCustomDensity(this, getApplication());
         setContentView(R.layout.aaaa_activity_login);

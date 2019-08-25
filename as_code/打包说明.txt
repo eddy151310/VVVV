@@ -1,4 +1,4 @@
-
+﻿
 在gradle.properties文件中配置对应的打包环境, 同步项目.
 在AndroidStudio的Terminal中输入以下打包命令, 进行编译打包apk.
 打包命令
@@ -22,6 +22,7 @@ AndroidStudio版本3.0.1 gradle版本 4.4 gradle插件版本为 3.1.2
 ------devtestDebug : 测试环境
 ------sandboxDebug : 沙盒环境
 -------onlineDebug : 现网环境
+s
 
 
 =====================================================================

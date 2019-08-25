@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-iw\\values-iw.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-iw\\values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iapp\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\9e87c3c69ace2aae3db95796ad3f8473\\res\\values-iw\\values.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-pl\\values-pl.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-pl\\values-pl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iapp\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\21b05aa119b283c086f692fc6352c368\\res\\values-pl\\values-pl.xml",

@@ -41,7 +41,7 @@
                     style="@style/et_id_info"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:drawablePadding="@dimen/dp_20"
-                    android:hint="@string/Login_B0"
+                    android:hint="请输入手机号"
                     android:inputType="number"
                     android:paddingRight="@dimen/dp_15" />
 
