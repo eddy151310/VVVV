@@ -105,6 +105,7 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         scrollView = findViewById(R.id.scrollView);
 
         tv_agreement = findViewById(R.id.tv_agreement);
+        tv_agreement.setHighlightColor(getResources().getColor(android.R.color.transparent));
         createLink(this , tv_agreement , "《XXXX用户协议》");
 
         ll_agreement = findViewById(R.id.ll_agreement);

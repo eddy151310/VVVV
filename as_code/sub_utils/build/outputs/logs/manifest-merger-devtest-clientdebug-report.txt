@@ -1,55 +1,55 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
 	package
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:2:5-33
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:2:5-33
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:1-15:12
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:1:11-69
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.USE_FINGERPRINT
-ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:5:5-74
+ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:5:5-74
 	android:name
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:5:22-71
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:5:22-71
 uses-permission#com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER
-ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:6:5-91
+ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:6:5-91
 	android:name
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:6:22-88
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:6:22-88
 uses-permission#com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY
-ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:7:5-117
+ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:7:5-117
 	android:name
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:7:22-114
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:7:22-114
 application
-ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:9:5-13:19
+ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:9:5-13:19
 	android:supportsRtl
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:11:9-35
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml:10:9-41
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml:10:9-41
 uses-sdk
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		ADDED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
-		INJECTED from D:\AV\V1.0.0\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		ADDED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml
+		INJECTED from D:\AV\V1.0.0\VVVV\as_code\sub_utils\src\main\AndroidManifest.xml

@@ -296,6 +296,7 @@
             android:theme="@style/PayHubTheme" />
         <activity
             android:name="com.ahdi.lib.utils.base.WebCommonActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.ahdi.wallet.app.ui.activities.other.AboutActivity"
