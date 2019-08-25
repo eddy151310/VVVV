@@ -105,6 +105,7 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         scrollView = findViewById(R.id.scrollView);
 
         tv_agreement = findViewById(R.id.tv_agreement);
+        tv_agreement.setHighlightColor(getResources().getColor(android.R.color.transparent));
         createLink(this , tv_agreement , "《XXXX用户协议》");
 
         ll_agreement = findViewById(R.id.ll_agreement);
@@ -219,10 +220,6 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         }else if (id == R.id.btn_submit) {
             closeSoftInput();
             ActivityManager.getInstance().openMainActivity(this);
-        }else if(id == R.id.tv_agreement){
-            Intent mintent = new Intent();
-            mintent.setClass(this, ServiceDetailsActivity2.class);
-            startActivity(mintent);
         }
     }
 
@@ -367,41 +364,11 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
+    @Override
     public void closeSoftInput() {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getWindow().getDecorView().getWindowToken(), 0);
     }
-
-    protected void closeLoading(LoadingDialog dialog) {
-        LoadingDialog.dismissDialog(dialog);
-    }
-
-    protected LoadingDialog showLoading() {
-        return LoadingDialog.showDialogLoading(this, getString(R.string.DialogTitle_C0));
-    }
-
-    protected LoadingDialog showLoading(String loading) {
-        return LoadingDialog.showDialogLoading(this, loading);
-    }
-
-    public void showToast(String msg) {
-        if (!TextUtils.isEmpty(msg)) {
-            ToastUtil.showToastShort(getApplicationContext(), msg);
-        }
-    }
-
-    protected boolean isCanClick() {
-        return ToolUtils.isCanClick();
-    }
-
-
-
-
-
-
-
-
-
 
 
     @Override
