@@ -1,5 +1,6 @@
 package com.ahdi.wallet.app.ui.aaaa.login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -7,7 +8,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -18,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.ahdi.lib.utils.base.WebBaseActivity;
 import com.ahdi.lib.utils.config.ConfigSP;
 import com.ahdi.lib.utils.utils.AppGlobalUtil;
 import com.ahdi.wallet.R;
@@ -96,7 +103,7 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
         scrollView = findViewById(R.id.scrollView);
 
         tv_agreement = findViewById(R.id.tv_agreement);
-        tv_agreement.setOnClickListener(this);
+        createLink(this , tv_agreement , "aaaaaaaaa");
 
         ll_agreement = findViewById(R.id.ll_agreement);
 
@@ -437,4 +444,29 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
             }
         });
     }
+
+
+    public void createLink(Activity mActivity, TextView tv , String link) {
+        SpannableString spannableString = new SpannableString(link);
+        spannableString.setSpan(new CustomUrlSpan(mActivity ,"http://www.baidu.com"), 0, link.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tv.setText(spannableString);
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+
+    public class CustomUrlSpan extends ClickableSpan {
+        private Context context;
+        private String url;
+
+        public CustomUrlSpan(Context context, String url) {
+            this.context = context;
+            this.url = url;
+        }
+
+        @Override
+        public void onClick(View widget) {
+
+        }
+    }
+
 }
