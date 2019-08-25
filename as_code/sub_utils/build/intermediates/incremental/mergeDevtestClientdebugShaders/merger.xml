@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\AV\V1.0.0\as_code\sub_utils\src\main\shaders"/></dataSet><dataSet config="devtest"><source path="D:\AV\V1.0.0\as_code\sub_utils\src\devtest\shaders"/></dataSet><dataSet config="clientdebug"><source path="D:\AV\V1.0.0\as_code\sub_utils\src\clientdebug\shaders"/></dataSet><dataSet config="devtestClientdebug"><source path="D:\AV\V1.0.0\as_code\sub_utils\src\devtestClientdebug\shaders"/></dataSet></merger>

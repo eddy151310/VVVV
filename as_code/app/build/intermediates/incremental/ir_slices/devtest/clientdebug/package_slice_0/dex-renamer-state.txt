@@ -1,4 +1,0 @@
-#Sun Aug 25 15:32:51 CST 2019
-base.0=D\:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\0
-path.0=classes.dex
-renamed.0=classes.dex
