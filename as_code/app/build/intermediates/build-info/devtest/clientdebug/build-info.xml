@@ -5,23 +5,24 @@
     build-mode="FULL"
     density="xxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.2"
-    timestamp="1566718776108"
+    timestamp="1566721152397"
     token="-5003470935134527850"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1608" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="105" />
     <task
         name="verifier"
-        duration="0" />
+        duration="28" />
 
     <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\resources\instant-run\devtest\clientdebug\resources-devtest-clientdebug.apk"
@@ -30,42 +31,43 @@
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\dep\dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_3.apk"
         type="SPLIT" />
     <artifact
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
         type="SPLIT" />
     <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_7.apk"
         type="SPLIT" />
     <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
         location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_8.apk"
         type="SPLIT" />
     <artifact
-        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-25-153936.apk"
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-25-161912.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1566718776108"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1566721152397"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\resources\instant-run\devtest\clientdebug\resources-devtest-clientdebug.apk"
@@ -74,37 +76,37 @@
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-25-153936.apk"
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\split-apk\devtest\clientdebug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\AV\V1.0.0\VVVV\as_code\app\build\intermediates\instant-run-apk\devtest\clientdebug\QRindo_v1.0.0_devtest_2019-08-25-161912.apk"
             type="SPLIT_MAIN" />
     </build>
 

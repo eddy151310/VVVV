@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Aug 25 15:39:58 CST 2019
+#Sun Aug 25 16:19:42 CST 2019
 17.baseType=DIRECTORY
 4.path=lib/x86_64/libBaiduMapSDK_base_v5_4_1.so
 25.base=D\:\\AV\\V1.0.0\\VVVV\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\13
