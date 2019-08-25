@@ -37,7 +37,6 @@ import com.ahdi.lib.utils.widgets.DeleteEditText;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
 import com.ahdi.wallet.app.callback.UserSdkCallBack;
-import com.ahdi.wallet.app.main.AppMain;
 import com.ahdi.wallet.app.sdk.UserSdk;
 import com.ahdi.wallet.app.ui.aaaa.ServiceDetailsActivity2;
 import com.ahdi.wallet.app.ui.adapters.listener.PhoneTextWatcher;
