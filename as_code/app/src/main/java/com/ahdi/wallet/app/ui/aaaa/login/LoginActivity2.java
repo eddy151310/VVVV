@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -24,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.ahdi.lib.utils.base.AppBaseActivity;
 import com.ahdi.lib.utils.base.WebBaseActivity;
 import com.ahdi.lib.utils.config.ConfigSP;
 import com.ahdi.lib.utils.utils.AppGlobalUtil;
@@ -51,7 +53,7 @@ import com.baidu.location.BDLocation;
 
 import org.json.JSONObject;
 
-public class LoginActivity2 extends PermissionsActivity implements View.OnClickListener {
+public class LoginActivity2 extends AppBaseActivity implements View.OnClickListener {
 
     private static final String TAG = LoginActivity2.class.getSimpleName();
 
@@ -103,7 +105,7 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
         scrollView = findViewById(R.id.scrollView);
 
         tv_agreement = findViewById(R.id.tv_agreement);
-        createLink(this , tv_agreement , "aaaaaaaaa");
+        createLink(this , tv_agreement , "《XXXX用户协议》");
 
         ll_agreement = findViewById(R.id.ll_agreement);
 
@@ -189,22 +191,6 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
             return true;
         }
         return false;
-    }
-
-    /**
-     * 界面初始化完成时, observer.isAlive()=false, 不会移除监听 影响UI线程
-     *
-     * @param observer
-     * @param listener
-     */
-    private void removeViewTreeObserver(ViewTreeObserver observer, ViewTreeObserver.OnGlobalLayoutListener listener) {
-        if (observer.isAlive()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                observer.removeOnGlobalLayoutListener(listener);
-            } else {
-                observer.removeGlobalOnLayoutListener(listener);
-            }
-        }
     }
 
     @Override
@@ -464,8 +450,16 @@ public class LoginActivity2 extends PermissionsActivity implements View.OnClickL
         }
 
         @Override
-        public void onClick(View widget) {
+        public void updateDrawState(@NonNull TextPaint ds) {
+            /**set textColor**/
+            ds.setColor(ds.linkColor);
+            /**Remove the underline**/
+            ds.setUnderlineText(false);
+        }
 
+        @Override
+        public void onClick(View widget) {
+            openWebCommonActivity("http://www.baidu.com");
         }
     }
 

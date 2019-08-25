@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\sub_utils\src\main\jniLibs"/></dataSet><dataSet config="devtest"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\sub_utils\src\devtest\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\sub_utils\src\debug\jniLibs"/></dataSet><dataSet config="devtestDebug"><source path="D:\AAAAAAAAAAAA\visen\V1.0.0\as_code\sub_utils\src\devtestDebug\jniLibs"/></dataSet></merger>

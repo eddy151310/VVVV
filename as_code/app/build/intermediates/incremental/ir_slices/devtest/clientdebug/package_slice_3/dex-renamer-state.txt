@@ -1,4 +1,4 @@
-#Sat Aug 24 11:21:59 CST 2019
-base.0=D\:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\3
+#Sun Aug 25 12:10:17 CST 2019
+base.0=D\:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\3
 path.0=classes.dex
 renamed.0=classes.dex

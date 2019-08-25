@@ -125,15 +125,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_agreement"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_20"
             android:gravity="center"
-            android:text="登录代表您已同意《XXXX用户协议》"
+            android:text="登录代表您已同意"
+            android:textColor="@color/CC_3E4050"
+            android:textSize="@dimen/dp_12"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:gravity="center"
+            android:text="《XXXX用户协议》"
             android:textColor="@color/CC_3E4050"
             android:textSize="@dimen/dp_12"
             android:textStyle="bold" />

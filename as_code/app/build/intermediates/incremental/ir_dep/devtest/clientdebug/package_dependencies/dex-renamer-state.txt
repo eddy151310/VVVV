@@ -1,7 +1,7 @@
-#Sat Aug 24 11:21:57 CST 2019
-base.0=D\:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\10
+#Sun Aug 25 12:10:15 CST 2019
+base.0=D\:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\10
 path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\AAAAAAAAAAAA\\visen\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\10
+base.1=D\:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\transforms\\dexMerger\\devtest\\clientdebug\\10
