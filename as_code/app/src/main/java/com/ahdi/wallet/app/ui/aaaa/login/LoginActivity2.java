@@ -4,17 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.text.style.URLSpan;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -26,7 +23,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.ahdi.lib.utils.base.AppBaseActivity;
-import com.ahdi.lib.utils.base.WebBaseActivity;
 import com.ahdi.lib.utils.config.ConfigSP;
 import com.ahdi.lib.utils.utils.AppGlobalUtil;
 import com.ahdi.wallet.R;
@@ -38,16 +34,14 @@ import com.ahdi.lib.utils.utils.CountdownUtil;
 import com.ahdi.lib.utils.utils.LBSInstance;
 import com.ahdi.lib.utils.utils.LanguageUtil;
 import com.ahdi.lib.utils.utils.LogUtil;
-import com.ahdi.lib.utils.utils.PermissionsActivity;
 import com.ahdi.lib.utils.utils.ScreenAdaptionUtil;
 import com.ahdi.lib.utils.utils.StatusBarUtil;
-import com.ahdi.lib.utils.utils.ToolUtils;
 import com.ahdi.lib.utils.widgets.DeleteEditText;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
 import com.ahdi.wallet.app.callback.UserSdkCallBack;
+import com.ahdi.wallet.app.response.aaa.SmsCodeRsp;
 import com.ahdi.wallet.app.sdk.UserSdk;
-import com.ahdi.wallet.app.ui.aaaa.ServiceDetailsActivity2;
 import com.ahdi.wallet.app.ui.adapters.listener.PhoneTextWatcher;
 import com.baidu.location.BDLocation;
 
@@ -68,6 +62,8 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
     private LoadingDialog loadingDialog = null;
     /**是否正在倒计时*/
     private boolean isCountdowning = false;
+
+    SmsCodeRsp smsCodeRsp ;
 
     @Override
     protected void onCreate(@NonNull Bundle savedInstanceState) {
@@ -216,10 +212,10 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
             return;
         }
         if (id == R.id.tv_send_code){
-            getCode();
+            getSMSCode();
         }else if (id == R.id.btn_submit) {
             closeSoftInput();
-            ActivityManager.getInstance().openMainActivity(this);
+            login(codeEdit.getText().toString().trim());
         }
     }
 
@@ -227,20 +223,22 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
     /**
      * 获取短信验证码
      */
-    private void getCode() {
+    private void getSMSCode() {
+        smsCodeRsp = null;
         loadingDialog = showLoading();
         LogUtil.d(TAG, "点击发送验证码按钮");
-        UserSdk.sendVCodeForLogin(this, "13001163475", new UserSdkCallBack() {
+        //13001163475
+        UserSdk.getSMSCode(this, phoneEdit.getText().toString().trim(), new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 loadingDialog.dismiss();
                 ToastUtil.showToastAtCenterLong(LoginActivity2.this , code + errorMsg );
+                if(code.equals(UserSdk.LOCAL_PAY_SUCCESS)){
+                    smsCodeRsp = SmsCodeRsp.decodeJson(SmsCodeRsp.class, jsonObject);
+                }
             }
         });
-
-
         detailOTP(false);
-
     }
 
     /**
@@ -295,6 +293,21 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
     }
 
 
+    /**
+     * 登录(SMS)
+     */
+    private void login(String smsCode) {
+        loadingDialog = showLoading();
+        LogUtil.d(TAG, "执行登录");
+        UserSdk.loginSMS(this, phoneEdit.getText().toString().trim(), smsCode , smsCodeRsp.orderId , new UserSdkCallBack() {
+            @Override
+            public void onResult(String code, String errorMsg, JSONObject jsonObject) {
+                loadingDialog.dismiss();
+                ToastUtil.showToastAtCenterLong(LoginActivity2.this , code + errorMsg );
+               // ActivityManager.getInstance().openMainActivity(this);
+            }
+        });
+    }
 
     /**
      * 初始化布局变化监听
@@ -374,6 +387,7 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        smsCodeRsp = null;
     }
 
 

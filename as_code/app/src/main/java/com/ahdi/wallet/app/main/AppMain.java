@@ -454,7 +454,7 @@ public class AppMain {
      * @param callBack
      */
     public void sendVCodeForRegister(Activity activity, String phoneNumber, UserSdkCallBack callBack) {
-        UserSdk.sendVCodeForRegister(activity, phoneNumber, callBack);
+        UserSdk.loginSMS(activity, phoneNumber, phoneNumber, "", callBack);
     }
 
     /**
@@ -465,7 +465,7 @@ public class AppMain {
      * @param callBack
      */
     public void sendVCodeForLogin(Activity activity, String phoneNumber, UserSdkCallBack callBack) {
-        UserSdk.sendVCodeForLogin(activity, phoneNumber, callBack);
+        UserSdk.getSMSCode(activity, phoneNumber, callBack);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.ahdi.wallet.network.framwork;
 
+import com.ahdi.lib.utils.cryptor.EncryptUtil;
 import com.ahdi.lib.utils.utils.LogUtil;
 
 import org.json.JSONException;
@@ -10,9 +11,9 @@ public abstract class Request {
     private static final String TAG = Request.class.getSimpleName();
 
     protected ABSHeader mHeader;
-    protected String BODY = "content";
+    protected String BODY = "body";
     protected String CONTENT = "content";
-    protected String SIGN_INFO = "signInfo";
+    protected String CONTENT_SIGN = "contentSign";
 
     public Request() {
         mHeader = new ABSHeader();
@@ -30,8 +31,10 @@ public abstract class Request {
 
     public String execute() {
         try {
-            JSONObject jsons = bodyWriteTo(new JSONObject());
-            return jsons.toString();
+
+            JSONObject json = new JSONObject();
+            JSONObject contentJson = bodyWriteTo(mHeader.writeTo(json));
+            return contentJson.toString();
         } catch (Exception e) {
             e.printStackTrace();
             LogUtil.e(TAG, "error:" + e.toString());
@@ -42,6 +45,12 @@ public abstract class Request {
         }
 
         return null;
+    }
+
+
+    public String md5WithContent(String content) {
+        final String md5 = "6d34707a3433306b98693";
+        return EncryptUtil.md5(content + "&" + md5);
     }
 
     public ABSHeader getmHeader() {

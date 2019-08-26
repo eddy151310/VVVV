@@ -9,6 +9,10 @@ import com.ahdi.lib.utils.config.Constants;
  */
 public interface ConstantsPayment {
 
+    String MODULE_SMS_CODE = "user/getSmsCode";
+    String MODULE_LOGIN_SMS = "user/login";
+
+
     String MODULE_QUERY_REGISTER = "u/check";
     String MODULE_REGISTER = "u/reg";
     String MODULE_LOGIN = "u/login";
@@ -36,7 +40,6 @@ public interface ConstantsPayment {
     String MODULE_MSG_HOME_URL = "msg/home";
     String MODULE_ACCOUNT_PROFILE = "a/v1/profile";
     String MODULE_SVC_REGISTER = "u/svc";
-    String MODULE_SMS_CODE = "user/getSmsCode";
     String MODULE_VVC_REGISTER = "u/vvc";
     String MODULE_PWD_SVC = "u/pwd/svc";
     String MODULE_PWD_VVC = "u/pwd/vvc";

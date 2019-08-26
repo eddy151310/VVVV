@@ -13,18 +13,26 @@ import org.json.JSONObject;
  */
 public class SmsCodeRsp extends Response {
 
-    public String orderId;
+    public String reqId;
     public String retCode;
     public String retMsg;
+    public String orderId;
 
     @Override
     public void bodyReadFrom(JSONObject json) {
         if (json == null) {
             return;
         }
-        orderId = json.optString("orderId");
+        reqId = json.optString("reqId");
         retCode = json.optString("retCode");
         retMsg = json.optString("retMsg");
+
+        orderId = json.optString("orderId");
+
+//        JSONObject content = json.optJSONObject(data);
+//        if (content != null) {
+//            orderId = json.optString("orderId");
+//        }
     }
 
 }

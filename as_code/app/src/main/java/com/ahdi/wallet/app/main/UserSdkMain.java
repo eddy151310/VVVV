@@ -32,6 +32,7 @@ import com.ahdi.wallet.app.request.UpUserPhotoReq;
 import com.ahdi.wallet.app.request.UpdateUserInfoReq;
 import com.ahdi.wallet.app.request.UserInfoGuideSetReq;
 import com.ahdi.wallet.app.request.VerifyCodeReq;
+import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
 import com.ahdi.wallet.app.request.aaa.SmsCodeReq;
 import com.ahdi.wallet.app.schemas.AvatarSchema;
 import com.ahdi.wallet.app.schemas.LoginSchema;
@@ -103,6 +104,26 @@ public class UserSdkMain {
         instance = null;
     }
 
+
+    /**
+     * 登录（sms登录）
+     */
+    public void loginSMS(Context context, String phoneNum, String smsCode, String smsOrderid, UserSdkCallBack callBack) {
+        initDefaultError(context);
+        LoginSMSReq request = new LoginSMSReq(phoneNum ,smsCode , smsOrderid);
+        HttpReqApp.getInstance().onLoginSMS(request, new VerifyCodeListener(callBack));
+    }
+
+    /**
+     * 获取短信验证码
+     */
+    public void getSMSCode(Context context, String phoneNum, UserSdkCallBack callBack) {
+        initDefaultError(context);
+        SmsCodeReq request = new SmsCodeReq(phoneNum);
+        HttpReqApp.getInstance().onSMSCode(request, new VerifyCodeListener(callBack));
+    }
+
+
     /**
      * 查询是否注册
      *
@@ -129,23 +150,6 @@ public class UserSdkMain {
         HttpReqApp.getInstance().onRegister(request, new RegisterListener());
     }
 
-    /**
-     * 注册: 下发短信验证码
-     */
-    public void sendVCodeForRegister(Context context, String phoneNum, UserSdkCallBack callBack) {
-        initDefaultError(context);
-        VerifyCodeReq request = new VerifyCodeReq(phoneNum);
-        HttpReqApp.getInstance().onSendVCodeForRegister(request, new VerifyCodeListener(callBack));
-    }
-
-    /**
-     * Login: 下发短信验证码
-     */
-    public void sendVCodeForLogin(Context context, String phoneNum, UserSdkCallBack callBack) {
-        initDefaultError(context);
-        SmsCodeReq request = new SmsCodeReq(phoneNum);
-        HttpReqApp.getInstance().onSendVCodeForLogin(request, new VerifyCodeListener(callBack));
-    }
 
     /**
      * 注册: 验证短信验证码

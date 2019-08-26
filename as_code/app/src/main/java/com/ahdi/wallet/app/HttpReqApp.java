@@ -46,6 +46,7 @@ import com.ahdi.wallet.app.request.UserInfoGuideSetReq;
 import com.ahdi.wallet.app.request.VerifyCodeReq;
 import com.ahdi.wallet.app.request.VoucherDetailReq;
 import com.ahdi.wallet.app.request.VoucherListReq;
+import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
 import com.ahdi.wallet.app.request.aaa.SmsCodeReq;
 import com.ahdi.wallet.app.utils.ConstantsPayment;
 import com.ahdi.wallet.cashier.requset.PayReportReq;
@@ -71,6 +72,29 @@ public class HttpReqApp {
         }
         return instance;
     }
+
+    /**
+     * 获取 验证码
+     *
+     * @param request
+     * @param listener
+     */
+    public void onSMSCode(SmsCodeReq request, HttpReqTaskListener listener) {
+        new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_SMS_CODE, request, listener)).execute();
+    }
+
+    /**
+     * Login: 登录（SMS）
+     * @param request
+     * @param listener
+     */
+    public void onLoginSMS(LoginSMSReq request, HttpReqTaskListener listener) {
+        new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_LOGIN_SMS, request, listener)).execute();
+    }
+
+
+
+
 
     /**
      * 查询是否注册
@@ -310,16 +334,6 @@ public class HttpReqApp {
      */
     public void onSendVCodeForRegister(VerifyCodeReq request, HttpReqTaskListener listener) {
         new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_SVC_REGISTER, request, listener)).execute();
-    }
-
-    /**
-     * Login: 下发短信验证码
-     *
-     * @param request
-     * @param listener
-     */
-    public void onSendVCodeForLogin(SmsCodeReq request, HttpReqTaskListener listener) {
-        new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_SMS_CODE, request, listener)).execute();
     }
 
     /**

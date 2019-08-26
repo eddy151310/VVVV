@@ -8,7 +8,7 @@ public abstract class Response {
 
     private static final String TAG = Response.class.getSimpleName();
 
-    public static final String data = "Data";
+    public static final String data = "content";
     protected ABSHeader mHeader = new ABSHeader();
 
     public abstract void bodyReadFrom(JSONObject json);

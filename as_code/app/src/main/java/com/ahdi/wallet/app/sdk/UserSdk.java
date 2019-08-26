@@ -141,13 +141,14 @@ public class UserSdk {
     }
 
     /**
-     * 注册: 下发短信验证码
-     *
-     * @param context
+     *  登录(短信验证码)
+     *  @param context
      * @param phoneNum
+     * @param smsCode
+     * @param smsOrderid
      * @param callBack
      */
-    public static void sendVCodeForRegister(Context context, String phoneNum, UserSdkCallBack callBack) {
+    public static void loginSMS(Context context, String phoneNum, String smsCode , String smsOrderid , UserSdkCallBack callBack) {
         if (checkContextAndCallback(context, callBack)) {
             return;
         }
@@ -158,7 +159,7 @@ public class UserSdk {
             return;
         }
 
-        UserSdkMain.getInstance().sendVCodeForRegister(context, phoneNum, callBack);
+        UserSdkMain.getInstance().loginSMS(context, phoneNum, smsCode ,smsOrderid, callBack);
 
     }
 
@@ -169,7 +170,7 @@ public class UserSdk {
      * @param phoneNum
      * @param callBack
      */
-    public static void sendVCodeForLogin(Context context, String phoneNum, UserSdkCallBack callBack) {
+    public static void getSMSCode(Context context, String phoneNum, UserSdkCallBack callBack) {
         if (checkContextAndCallback(context, callBack)) {
             return;
         }
@@ -180,7 +181,7 @@ public class UserSdk {
             return;
         }
 
-        UserSdkMain.getInstance().sendVCodeForLogin(context, phoneNum, callBack);
+        UserSdkMain.getInstance().getSMSCode(context, phoneNum, callBack);
 
     }
 

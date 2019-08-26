@@ -59,7 +59,7 @@ public class VerifyCodeReq extends Request {
 
             String md5 = "6d34707a3433306b98693";
             String signInfo = EncryptUtil.md5(contentStr + "&" + md5);
-            json.put(SIGN_INFO, signInfo);
+            json.put(CONTENT_SIGN, signInfo);
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -2,7 +2,6 @@ package com.ahdi.wallet.app.request.aaa;
 
 import android.text.TextUtils;
 
-import com.ahdi.lib.utils.cryptor.EncryptUtil;
 import com.ahdi.lib.utils.utils.LogUtil;
 import com.ahdi.wallet.network.framwork.Request;
 
@@ -33,18 +32,21 @@ public class SmsCodeReq extends Request {
         if (json == null)
             return null;
 
+        JSONObject body = new JSONObject();
+
         JSONObject content = new JSONObject();
         try {
+
+            content.put("reqId", "123");//通讯流水
+
             if (!TextUtils.isEmpty(phoneNumber)) {
                 content.put("mobile", phoneNumber);
             }
-            json.put(CONTENT, content);
 
-            String contentStr = content.toString();
+            body.put(CONTENT , content); //body包含的第一部分 content
+            body.put(CONTENT_SIGN, md5WithContent(content.toString()));//body包含的第二部分 contentSign
 
-            String md5 = "6d34707a3433306b98693";
-            String signInfo = EncryptUtil.md5(contentStr + "&" + md5);
-            json.put(SIGN_INFO, signInfo);
+            json.put(BODY ,body);
 
         } catch (JSONException e) {
             e.printStackTrace();
