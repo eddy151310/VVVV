@@ -22,18 +22,15 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.ahdi.lib.utils.base.ActivityManager;
 import com.ahdi.lib.utils.base.AppBaseActivity;
+import com.ahdi.lib.utils.base.BaseEditTextWatcher;
+import com.ahdi.lib.utils.base.GlobalContextWrapper;
+import com.ahdi.lib.utils.config.ConfigCountry;
 import com.ahdi.lib.utils.config.ConfigSP;
 import com.ahdi.lib.utils.config.Constants;
 import com.ahdi.lib.utils.network.HttpReqTaskListener;
 import com.ahdi.lib.utils.utils.AppGlobalUtil;
-import com.ahdi.lib.utils.utils.ProfileUserUtil;
-import com.ahdi.wallet.GlobalApplication;
-import com.ahdi.wallet.R;
-import com.ahdi.lib.utils.base.ActivityManager;
-import com.ahdi.lib.utils.base.BaseEditTextWatcher;
-import com.ahdi.lib.utils.base.GlobalContextWrapper;
-import com.ahdi.lib.utils.config.ConfigCountry;
 import com.ahdi.lib.utils.utils.CountdownUtil;
 import com.ahdi.lib.utils.utils.LBSInstance;
 import com.ahdi.lib.utils.utils.LanguageUtil;
@@ -43,14 +40,13 @@ import com.ahdi.lib.utils.utils.StatusBarUtil;
 import com.ahdi.lib.utils.widgets.DeleteEditText;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
+import com.ahdi.wallet.GlobalApplication;
+import com.ahdi.wallet.R;
 import com.ahdi.wallet.app.HttpReqApp;
-import com.ahdi.wallet.app.callback.UserSdkCallBack;
-import com.ahdi.wallet.app.listener.user.VerifyCodeListener;
 import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
 import com.ahdi.wallet.app.request.aaa.SmsCodeReq;
 import com.ahdi.wallet.app.response.aaa.LoginSMSRsp;
 import com.ahdi.wallet.app.response.aaa.SmsCodeRsp;
-import com.ahdi.wallet.app.sdk.UserSdk;
 import com.ahdi.wallet.app.ui.adapters.listener.PhoneTextWatcher;
 import com.baidu.location.BDLocation;
 
@@ -246,10 +242,10 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
                     loadingDialog.dismiss();
                     LogUtil.d(TAG,   "解析json :" + json);
                     ToastUtil.showToastAtCenterLong(LoginActivity2.this , smsCodeRsp.getmHeader().retCode + smsCodeRsp.getmHeader().retMsg );
-                    LoginSMSRsp mLoginSMSRsp = LoginSMSRsp.decodeJson(LoginSMSRsp.class ,json);
-                    if(mLoginSMSRsp.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
-                        GlobalApplication.getApplication().setSID(mLoginSMSRsp.sid);
-                        GlobalApplication.getApplication().setUserID(mLoginSMSRsp.userId);
+                    LoginSMSRsp responseLogin = LoginSMSRsp.decodeJson(LoginSMSRsp.class ,json);
+                    if(responseLogin.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
+                        GlobalApplication.getApplication().setSID(responseLogin.sid);
+                        GlobalApplication.getApplication().setUserID(responseLogin.userId);
                     }
 
                 }

@@ -1,6 +1,5 @@
 package com.ahdi.wallet.app.response.aaa;
 
-import com.ahdi.wallet.network.framwork.ABSIO;
 import com.ahdi.wallet.network.framwork.Response;
 
 import org.json.JSONObject;
@@ -9,7 +8,7 @@ import org.json.JSONObject;
  * Author: ibb
  * Description:
  */
-public class SmsCodeRsp extends Response {
+public class UserInfoRsp extends Response {
 
     public String orderId;
 

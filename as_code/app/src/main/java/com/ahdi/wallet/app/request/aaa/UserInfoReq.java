@@ -12,19 +12,14 @@ import org.json.JSONObject;
  * Author: ibb
  * Description:
  */
-public class SmsCodeReq extends Request {
+public class UserInfoReq extends Request {
 
-    private static final String TAG = SmsCodeReq.class.getSimpleName();
+    private static final String TAG = UserInfoReq.class.getSimpleName();
 
-    private String phoneNumber;
+    private String sid;
 
-    /**
-     * 下发短信验证码---专用
-     *
-     * @param phoneNumber
-     */
-    public SmsCodeReq(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public UserInfoReq(String sid) {
+        this.sid = sid;
     }
 
 
@@ -40,8 +35,8 @@ public class SmsCodeReq extends Request {
 
             content.put("reqId", TAG);//通讯流水
 
-            if (!TextUtils.isEmpty(phoneNumber)) {
-                content.put("mobile", phoneNumber);
+            if (!TextUtils.isEmpty(sid)) {
+                content.put("mobile", sid);
             }
 
             body.put(CONTENT , content); //body包含的第一部分 content

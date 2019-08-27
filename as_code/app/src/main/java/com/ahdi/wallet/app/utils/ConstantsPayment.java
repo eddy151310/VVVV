@@ -11,6 +11,7 @@ public interface ConstantsPayment {
 
     String MODULE_SMS_CODE = "user/getSmsCode";
     String MODULE_LOGIN_SMS = "user/login";
+    String MODULE_USER_INFO = "user/base";
 
 
     String MODULE_QUERY_REGISTER = "u/check";

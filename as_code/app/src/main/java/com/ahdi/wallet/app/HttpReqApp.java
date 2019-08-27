@@ -48,6 +48,7 @@ import com.ahdi.wallet.app.request.VoucherDetailReq;
 import com.ahdi.wallet.app.request.VoucherListReq;
 import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
 import com.ahdi.wallet.app.request.aaa.SmsCodeReq;
+import com.ahdi.wallet.app.request.aaa.UserInfoReq;
 import com.ahdi.wallet.app.utils.ConstantsPayment;
 import com.ahdi.wallet.cashier.requset.PayReportReq;
 import com.ahdi.wallet.network.HttpReqAsyncTask;
@@ -92,6 +93,15 @@ public class HttpReqApp {
         new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_LOGIN_SMS, request, listener)).execute();
     }
 
+    /**
+     * 获取 用户详情
+     *
+     * @param request
+     * @param listener
+     */
+    public void onUserInfo(UserInfoReq request, HttpReqTaskListener listener) {
+        new HttpReqAsyncTask(new HttpReqAsyncTask.Param(ConstantsPayment.MODULE_USER_INFO, request, listener)).execute();
+    }
 
 
 

@@ -14,6 +14,7 @@ import com.ahdi.lib.utils.base.AppBaseActivity;
 import com.ahdi.lib.utils.bean.UserData;
 import com.ahdi.lib.utils.config.Constants;
 import com.ahdi.lib.utils.imagedown.ImageDownUtil;
+import com.ahdi.lib.utils.network.HttpReqTaskListener;
 import com.ahdi.lib.utils.takephoto.TakePhotoMain;
 import com.ahdi.lib.utils.takephoto.callback.TakePhotoCallBack;
 import com.ahdi.lib.utils.takephoto.util.ImageUtil;
@@ -27,11 +28,14 @@ import com.ahdi.lib.utils.widgets.dialog.ListSelectDialog;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
 import com.ahdi.wallet.GlobalApplication;
 import com.ahdi.wallet.R;
+import com.ahdi.wallet.app.HttpReqApp;
 import com.ahdi.wallet.app.callback.UserSdkCallBack;
 import com.ahdi.wallet.app.main.AppMain;
+import com.ahdi.wallet.app.request.aaa.UserInfoReq;
 import com.ahdi.wallet.app.response.GetPhotoUpUrlRsp;
 import com.ahdi.wallet.app.response.UpUserPhotoRsp;
 import com.ahdi.wallet.app.response.UpdateUserInfoRsp;
+import com.ahdi.wallet.app.response.aaa.UserInfoRsp;
 import com.ahdi.wallet.app.schemas.AvatarSchema;
 import com.ahdi.wallet.app.schemas.UserSchema;
 import com.ahdi.wallet.app.sdk.UserSdk;
@@ -104,6 +108,9 @@ public class ProfileActivity2 extends AppBaseActivity {
     }
 
     private void initData() {
+
+        getUserinfo();
+
         UserData userData = ProfileUserUtil.getInstance().getUserData();
         if (userData == null) {
             return;
@@ -422,6 +429,31 @@ public class ProfileActivity2 extends AppBaseActivity {
         }
         datePickerView = null;
         selectPhotoView = null;
+    }
+
+
+    /**
+     * 获取短信验证码
+     */
+    private void getUserinfo() {
+        loadingDialog = showLoading();
+        UserInfoReq request = new UserInfoReq(GlobalApplication.getApplication().getSID());
+        HttpReqApp.getInstance().onUserInfo(request, new HttpReqTaskListener() {
+
+            @Override
+            public void onPostExecute(JSONObject json) {
+                loadingDialog.dismiss();
+                LogUtil.d(TAG,   "解析json :" + json);
+                UserInfoRsp response = UserInfoRsp.decodeJson(UserInfoRsp.class, json);
+                ToastUtil.showToastAtCenterLong(ProfileActivity2.this , response.getmHeader().retCode + response.getmHeader().retMsg );
+            }
+
+            @Override
+            public void onError(JSONObject json) {
+                LogUtil.d(TAG,   "解析json onError :" + json);
+                loadingDialog.dismiss();
+            }
+        });
     }
 
 }

@@ -4,7 +4,6 @@ import com.ahdi.wallet.network.framwork.Response;
 import org.json.JSONObject;
 
 /**
- * Date: 2019/8/26 下午5:10
  * Author: ibb
  * Description:
  */
