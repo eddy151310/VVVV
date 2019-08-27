@@ -27,11 +27,6 @@ public class RNASubmitAllListener implements HttpReqTaskListener {
         this.callBack = callBack;
     }
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -41,10 +36,10 @@ public class RNASubmitAllListener implements HttpReqTaskListener {
         }
         RNASubmitAllRsp resp = RNASubmitAllRsp.decodeJson(RNASubmitAllRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, IDVerifySdk.LOCAL_SUCCESS)) {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, IDVerifySdk.LOCAL_SUCCESS)) {
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(IDVerifySdk.LOCAL_SYSTEM_EXCEPTION, IDVerifySdkMain.getInstance().default_error, null);

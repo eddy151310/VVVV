@@ -48,7 +48,7 @@ public class BankCardEnterPwdActivity extends AppBaseActivity {
     private void initIntentData() {
         Intent intent = getIntent();
         if (intent != null) {
-            sid = intent.getStringExtra(Constants.LOCAL_SID_KEY);
+            sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
             bid = intent.getStringExtra(Constants.LOCAL_BID_KEY);
             from = intent.getIntExtra(Constants.LOCAL_FROM_KEY, 0);
         }
@@ -158,7 +158,7 @@ public class BankCardEnterPwdActivity extends AppBaseActivity {
             SelectCardTypeRsp resp = SelectCardTypeRsp.decodeJson(SelectCardTypeRsp.class, jsonObject);
             if (resp != null && TextUtils.equals(code, BankCardSdk.LOCAL_PAY_SUCCESS)) {
                 Intent intent = new Intent(BankCardEnterPwdActivity.this, BindCardTypeActivity.class);
-                intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+                intent.putExtra(Constants.LOCAL_KEY_SID, sid);
                 intent.putExtra(Constants.LOCAL_TOKEN_KEY, resp.getToken());
                 PaymentGlobalData.getInstance().setBindCardTypeSchemas(resp.getCardTypeSchema());
                 startActivity(intent);

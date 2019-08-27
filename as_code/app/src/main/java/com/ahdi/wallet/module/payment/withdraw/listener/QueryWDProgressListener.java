@@ -28,21 +28,16 @@ public class QueryWDProgressListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         WDQueryProgressResp resp = WDQueryProgressResp.decodeJson(WDQueryProgressResp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, WithDrawSdk.LOCAL_PAY_SUCCESS)) {
-                WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json, ID);
+            if (TextUtils.equals(resp.getmHeader().retCode, WithDrawSdk.LOCAL_PAY_SUCCESS)) {
+                WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json, ID);
             } else {
-                WithDrawMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, ID);
+                WithDrawMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, ID);
             }
         } else {
             WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SYSTEM_EXCEPTION, WithDrawMain.getInstance().default_error, null, ID);

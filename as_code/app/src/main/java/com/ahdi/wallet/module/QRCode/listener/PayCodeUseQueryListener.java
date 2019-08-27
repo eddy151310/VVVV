@@ -28,10 +28,6 @@ public class PayCodeUseQueryListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -42,10 +38,10 @@ public class PayCodeUseQueryListener implements HttpReqTaskListener {
                 LogUtil.e(TAG, "callBack is null");
                 return;
             }
-            if (TextUtils.equals(resp.getmHeader().RetCode, QRCodeSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(QRCodeSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, QRCodeSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(QRCodeSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(QRCodeSdk.LOCAL_PAY_SYSTEM_EXCEPTION, QRCodeMain.getInstance().default_error, null);

@@ -25,10 +25,6 @@ public class BannerInfoListener implements HttpReqTaskListener {
         this.callBack = callBack;
     }
 
-    @Override
-    public void onPreExecute() {
-
-    }
 
     @Override
     public void onPostExecute(JSONObject json) {
@@ -40,10 +36,10 @@ public class BannerInfoListener implements HttpReqTaskListener {
         }
         BannerInfoRsp resp = BannerInfoRsp.decodeJson(BannerInfoRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, UserSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(UserSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, UserSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(UserSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(UserSdk.LOCAL_PAY_SYSTEM_EXCEPTION, UserSdkMain.getInstance().default_error, null);

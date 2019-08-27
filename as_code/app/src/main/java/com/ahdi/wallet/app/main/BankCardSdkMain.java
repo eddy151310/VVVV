@@ -94,7 +94,7 @@ public class BankCardSdkMain {
     public void bindCardCheckPayPwd(Activity context, String sid) {
         initDefaultError(context);
         Intent intent = new Intent(context, BankCardEnterPwdActivity.class);
-        intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+        intent.putExtra(Constants.LOCAL_KEY_SID, sid);
         context.startActivity(intent);
     }
 
@@ -127,7 +127,7 @@ public class BankCardSdkMain {
         if (!TextUtils.isEmpty(bid)) {
             Intent intent = new Intent(context, BankCardEnterPwdActivity.class);
             intent.putExtra(Constants.LOCAL_BID_KEY, bid);
-            intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+            intent.putExtra(Constants.LOCAL_KEY_SID, sid);
             intent.putExtra(Constants.LOCAL_FROM_KEY, from);
             context.startActivity(intent);
         } else {

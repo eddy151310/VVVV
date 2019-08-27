@@ -27,18 +27,13 @@ public class VoucherDetailListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e("VoucherDetailRsp:",json.toString());
         }
         VoucherDetailRsp resp = VoucherDetailRsp.decodeJson(VoucherDetailRsp.class, json);
         if (resp != null) {
-            onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, resp);
+            onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, resp);
         } else {
             onResult(VoucherSdk.LOCAL_SYSTEM_EXCEPTION, VoucherSdkMain.getInstance().default_error, null);
             LogUtil.d(TAG, TAG + "解析之后为空");

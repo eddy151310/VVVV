@@ -36,17 +36,13 @@ public class SetBindCardLimitListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         SetCardLimitRsp resp = SetCardLimitRsp.decodeJson(SetCardLimitRsp.class, json);
         if (resp != null) {
-            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().RetCode)) {
+            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().retCode)) {
                 String invoke = resp.getPayBCBindSchema().getInvoke();
                 if (invoke.equals("SDK")) {
                     //吊起BCA修改限额
@@ -54,19 +50,19 @@ public class SetBindCardLimitListener implements HttpReqTaskListener {
                         @Override
                         public void onSuccess() {
                             //BCA修改限额成功，停留在管理卡详情刷新
-                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
                         }
 
                         @Override
                         public void onFail(String msg) {
                             //绑卡取消，停留在当前页面
-                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_UP_CANCEL, resp.getmHeader().ErrMsg, json);
+                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_UP_CANCEL, resp.getmHeader().retMsg, json);
                         }
                     });
                 }
 
             } else {
-                checkErrorResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg);
+                checkErrorResult(resp.getmHeader().retCode, resp.getmHeader().retMsg);
             }
         } else {
             BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankCardSdkMain.getInstance().default_error, null);

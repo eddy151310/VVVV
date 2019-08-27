@@ -65,7 +65,7 @@ public class BindCardTypeActivity extends AppBaseActivity {
     }
 
     private void initData() {
-        sid = getIntent().getStringExtra(Constants.LOCAL_SID_KEY);
+        sid = getIntent().getStringExtra(Constants.LOCAL_KEY_SID);
         token = getIntent().getStringExtra(Constants.LOCAL_TOKEN_KEY);
         BindCardTypeSchema[] cardTypeSchemas = PaymentGlobalData.getInstance().getBindCardTypeSchemas();
         bindCardTypeList.clear();

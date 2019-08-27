@@ -18,21 +18,16 @@ public class RechrResultQueryListener implements HttpReqTaskListener {
     private static final String TAG = RechrResultQueryListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         RechrResultQueryRsp resp = RechrResultQueryRsp.decodeJson(RechrResultQueryRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, TopUpSdk.LOCAL_PAY_SUCCESS)) {
-                TopUpMain.getInstance().onResultBack(TopUpSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json, "");
+            if (TextUtils.equals(resp.getmHeader().retCode, TopUpSdk.LOCAL_PAY_SUCCESS)) {
+                TopUpMain.getInstance().onResultBack(TopUpSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json, "");
             } else {
-                TopUpMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, "");
+                TopUpMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, "");
             }
         } else {
             LogUtil.d(TAG, TAG + "解析之后为空");

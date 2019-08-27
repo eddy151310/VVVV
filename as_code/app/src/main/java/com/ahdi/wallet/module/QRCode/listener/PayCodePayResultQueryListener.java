@@ -22,10 +22,6 @@ public class PayCodePayResultQueryListener implements HttpReqTaskListener {
     public PayCodePayResultQueryListener() {
     }
 
-    @Override
-    public void onPreExecute() {
-
-    }
 
     @Override
     public void onPostExecute(JSONObject json) {
@@ -34,14 +30,14 @@ public class PayCodePayResultQueryListener implements HttpReqTaskListener {
         }
         PayResultQueryResponse resp = PayResultQueryResponse.decodeJson(PayResultQueryResponse.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, PayCashierSdk.LOCAL_PAY_SUCCESS)) {
-                PayCashierMain.getInstance().onResultBack(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, PayCashierSdk.LOCAL_PAY_SUCCESS)) {
+                PayCashierMain.getInstance().onResultBack(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                PayCashierMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                PayCashierMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             LogUtil.d(TAG, TAG + "解析之后为空");
-            PayCashierMain.getInstance().onResultBack(PayCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().ErrMsg, json);
+            PayCashierMain.getInstance().onResultBack(PayCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().retMsg, json);
         }
     }
 

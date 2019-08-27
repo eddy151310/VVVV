@@ -1,24 +1,17 @@
 package com.ahdi.wallet.network.framwork;
 
-import android.text.TextUtils;
-
-import com.ahdi.lib.utils.config.ConfigCountry;
 import com.ahdi.lib.utils.config.ConfigHelper;
 import com.ahdi.lib.utils.config.Constants;
-import com.ahdi.lib.utils.utils.AppGlobalUtil;
 import com.ahdi.lib.utils.utils.DateUtil;
 import com.ahdi.lib.utils.utils.DeviceUtil;
-import com.ahdi.lib.utils.utils.LanguageUtil;
-import com.ahdi.lib.utils.utils.TerminalIdUtil;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ABSHeader extends ABSIO {
 
-    public String RetCode = Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION;
-    public String ErrMsg = "";
+    public String retCode = Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION;
+    public String retMsg = "";
 
     private String sid;
     private int tzOffset = DateUtil.getTZOffset(null);
@@ -60,7 +53,7 @@ public class ABSHeader extends ABSIO {
         if (json == null) {
             return;
         }
-        RetCode = json.optString("retCode");
-        ErrMsg = json.optString("retMsg");
+        retCode = json.optString("retCode");
+        retMsg = json.optString("retMsg");
     }
 }

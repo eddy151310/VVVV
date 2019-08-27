@@ -36,11 +36,6 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -48,7 +43,7 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
         LoadingDialog.dismissDialog(loadingDialog);
         ApplyBindCardRsp resp = ApplyBindCardRsp.decodeJson(ApplyBindCardRsp.class, json);
         if (resp != null) {
-            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().RetCode)) {
+            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().retCode)) {
                 String invoke = resp.getPayBCBindSchema().getInvoke();
                 if (invoke.equals("WEB")) {
                     String url = resp.getPayBCBindSchema().getUrl();
@@ -61,7 +56,7 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
                         @Override
                         public void onSuccess() {
                             //BCA绑卡成功，去刷新成功列表
-                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+                            BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
                             context.finish();
                         }
 
@@ -74,7 +69,7 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
                 }
 
             } else {
-                checkErrorResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg);
+                checkErrorResult(resp.getmHeader().retCode, resp.getmHeader().retMsg);
             }
         } else {
             BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankCardSdkMain.getInstance().default_error, null);
@@ -93,7 +88,7 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
         if (context != null) {
             Intent intent = new Intent(context, BankCardPayWebActivity.class);
             intent.putExtra(Constants.LOCAL_WEB_VIEW_URL_KEY, url);
-            intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+            intent.putExtra(Constants.LOCAL_KEY_SID, sid);
             context.startActivity(intent);
         }
     }

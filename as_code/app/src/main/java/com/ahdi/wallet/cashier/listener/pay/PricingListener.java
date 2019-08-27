@@ -36,22 +36,17 @@ public class PricingListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         PricingResponse resp = PricingResponse.decodeJson(PricingResponse.class, json);
         if (resp != null) {
-            if (TextUtils.equals(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().RetCode)) {
+            if (TextUtils.equals(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retCode)) {
                 CashierPricing.getInstance(context).notifyPricingResponse(resp);
                 openPayHubActivity(resp);
             } else {
-                PayCashierMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                PayCashierMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             PayCashierMain.getInstance().onResultBack(PayCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, PayCashierMain.getInstance().default_error, null);

@@ -26,10 +26,6 @@ public class CheckPayPwdListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -40,10 +36,10 @@ public class CheckPayPwdListener implements HttpReqTaskListener {
         }
         CheckPayPwdRsp resp = CheckPayPwdRsp.decodeJson(CheckPayPwdRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, AccountSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(AccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, AccountSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(AccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, null);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, null);
             }
         } else {
             callBack.onResult(AccountSdk.LOCAL_PAY_SYSTEM_EXCEPTION, AccountSdkMain.getInstance().default_error, null);

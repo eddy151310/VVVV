@@ -20,21 +20,16 @@ public class RechrQuotaQueryListener implements HttpReqTaskListener {
     private static final String TAG = RechrQuotaQueryListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         RechrQuotaQueryRsp resp = RechrQuotaQueryRsp.decodeJson(RechrQuotaQueryRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, TopUpSdk.LOCAL_PAY_SUCCESS)) {
-                TopUpMain.getInstance().onResultBack(TopUpSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json, "");
+            if (TextUtils.equals(resp.getmHeader().retCode, TopUpSdk.LOCAL_PAY_SUCCESS)) {
+                TopUpMain.getInstance().onResultBack(TopUpSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json, "");
             } else {
-                TopUpMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, "");
+                TopUpMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, "");
             }
         } else {
             TopUpMain.getInstance().onResultBack(TopUpSdk.LOCAL_PAY_SYSTEM_EXCEPTION, TopUpMain.getInstance().default_error, null, "");

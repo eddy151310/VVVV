@@ -22,7 +22,7 @@ public class PayBindSchema extends ABSIO {
      * BCA SDK绑卡拉起参数如下：
      {
      "md5":"",
-     "data":{"merchantId":"",
+     "content":{"merchantId":"",
      "apiKey":"",
      "apiSecret":"",
      "clientId":"", "clientSecret":"", "accessToken":""
@@ -66,7 +66,7 @@ public class PayBindSchema extends ABSIO {
         JSONObject paramJs = new JSONObject(parm);
         if (invoke.equals("SDK")){
             try {
-                String payParamEncrypt = paramJs.optString("data");
+                String payParamEncrypt = paramJs.optString("content");
                 String payParamDecrypt = AesKeyCryptor.decodeData(payParamEncrypt);
                 LogUtil.d(TAG,"BindBC--Param--解密后的data:" + payParamDecrypt);
 

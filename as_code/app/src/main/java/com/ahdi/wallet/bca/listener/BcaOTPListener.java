@@ -24,11 +24,6 @@ public class BcaOTPListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -39,7 +34,7 @@ public class BcaOTPListener implements HttpReqTaskListener {
         }
         BcaOTPRsp resp = BcaOTPRsp.decodeJson(BcaOTPRsp.class, json);
         if (resp != null) {
-            callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+            callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
         } else {
             callBack.onResult(BcaSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BcaSdkMain.getInstance().default_error, null);
             LogUtil.d(TAG, TAG + "解析之后为空");

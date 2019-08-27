@@ -24,21 +24,16 @@ public class IsCanBindCardListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         IsCanBindRsp resp = IsCanBindRsp.decodeJson(IsCanBindRsp.class, json);
         if (resp != null) {
-            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().RetCode)) {
-                cardSdkCallBack.onResult(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().retCode)) {
+                cardSdkCallBack.onResult(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                cardSdkCallBack.onResult(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().ErrMsg, json);
+                cardSdkCallBack.onResult(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().retMsg, json);
             }
         } else {
             cardSdkCallBack.onResult(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankCardSdkMain.getInstance().default_error, null);

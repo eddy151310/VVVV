@@ -27,6 +27,10 @@ public class GlobalApplication extends MultiDexApplication {
     public static final String TAG = GlobalApplication.class.getSimpleName();
     private static GlobalApplication instance = null;
 
+
+    private String sid ;
+    private String userID ;
+
     private ActivityLifeCallBack activityLifeCallBack = null;
     private UserData userData;
     private AccountData accountData;
@@ -58,8 +62,23 @@ public class GlobalApplication extends MultiDexApplication {
         }
     }
 
+    public void setSID(String sid){
+        this.sid = sid ;
+        AppGlobalUtil.getInstance().putString(this , Constants.LOCAL_KEY_SID,sid );
+    }
+
     public String getSID() {
-        return ProfileUserUtil.getInstance().getSID();
+        if(TextUtils.isEmpty(sid)){
+            sid =  AppGlobalUtil.getInstance().getString(this ,Constants.LOCAL_KEY_SID );
+        }
+        return sid;
+    }
+    public void setUserID(String userID){
+        this.userID = userID ;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 
     public void updateUserSchema(UserSchema userSchema) {

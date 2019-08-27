@@ -22,21 +22,16 @@ public class QueryQRTargetListener implements HttpReqTaskListener {
     private static final String TAG = QueryQRTargetListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         QueryQRTransferResp resp = QueryQRTransferResp.decodeJson(QueryQRTransferResp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, TransferSdk.LOCAL_PAY_SUCCESS)) {
-                TransferMain.getInstance().onResultBack(TransferSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json, "");
+            if (TextUtils.equals(resp.getmHeader().retCode, TransferSdk.LOCAL_PAY_SUCCESS)) {
+                TransferMain.getInstance().onResultBack(TransferSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json, "");
             } else {
-                TransferMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, "");
+                TransferMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, "");
             }
         } else {
             TransferMain.getInstance().onResultBack(TransferSdk.LOCAL_PAY_SYSTEM_EXCEPTION, TransferMain.getInstance().default_error, null, "");

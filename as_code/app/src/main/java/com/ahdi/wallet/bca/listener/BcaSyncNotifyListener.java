@@ -36,20 +36,15 @@ public class BcaSyncNotifyListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         closeLoading();
         BcaResultNotifyRsp response = BcaResultNotifyRsp.decodeJson(BcaResultNotifyRsp.class,json);
-        if (response != null && response.getmHeader().RetCode.equals(Constants.RET_CODE_SUCCESS)){
+        if (response != null && response.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
             activity.finish();
             BcaSdkMain.getInstance().onBankCardResultSuccess();
         }else {
             //绑卡结果通知接口失败，弹层提示用户重试，或取消
-            showDialogToAgainNotify(activity,response.getmHeader().ErrMsg,init,method,data,bid);
+            showDialogToAgainNotify(activity,response.getmHeader().retMsg,init,method,data,bid);
         }
     }
 

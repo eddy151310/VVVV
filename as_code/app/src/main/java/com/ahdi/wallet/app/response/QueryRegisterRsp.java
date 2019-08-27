@@ -24,7 +24,7 @@ public class QueryRegisterRsp extends Response {
         if (json == null) {
             return;
         }
-        JSONObject body = json.optJSONObject(data);
+        JSONObject body = json.optJSONObject(content);
         if (body == null) {
             return;
         }

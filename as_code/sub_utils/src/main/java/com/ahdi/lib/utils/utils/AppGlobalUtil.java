@@ -18,8 +18,6 @@ import java.io.File;
 
 /**
  * 全局数据
- *
- * @author zhonghu
  */
 public class AppGlobalUtil {
 

@@ -18,21 +18,16 @@ public class MsgListListener implements HttpReqTaskListener {
     private static final String TAG = MsgListListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         MsgListRsp resp = MsgListRsp.decodeJson(MsgListRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, MsgSdk.LOCAL_SUCCESS)) {
-                MessageSdkMain.getInstance().onResultBack(MsgSdk.LOCAL_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, MsgSdk.LOCAL_SUCCESS)) {
+                MessageSdkMain.getInstance().onResultBack(MsgSdk.LOCAL_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                MessageSdkMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                MessageSdkMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             MessageSdkMain.getInstance().onResultBack(MsgSdk.LOCAL_SYSTEM_EXCEPTION, MessageSdkMain.getInstance().default_error, null);

@@ -25,7 +25,7 @@ public class ApplyBindCardRsp extends Response {
         }
         LogUtil.e(TAG, json.toString());
 
-        JSONObject body = json.optJSONObject(data);
+        JSONObject body = json.optJSONObject(content);
         if (body == null) {
             return;
         }

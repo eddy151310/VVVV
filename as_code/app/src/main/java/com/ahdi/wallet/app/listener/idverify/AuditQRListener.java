@@ -20,21 +20,16 @@ public class AuditQRListener implements HttpReqTaskListener {
     private static final String TAG = AuditQRListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         AuditQRRsp resp = AuditQRRsp.decodeJson(AuditQRRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, IDVerifySdk.LOCAL_SUCCESS)) {
+            if (TextUtils.equals(resp.getmHeader().retCode, IDVerifySdk.LOCAL_SUCCESS)) {
                 IDVerifySdkMain.getInstance().onAuditResult(json, resp);
             } else {
-                IDVerifySdkMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                IDVerifySdkMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             IDVerifySdkMain.getInstance().onResultBack(IDVerifySdk.LOCAL_SYSTEM_EXCEPTION, IDVerifySdkMain.getInstance().default_error, null);

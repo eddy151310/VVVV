@@ -8,7 +8,7 @@ public abstract class Response {
 
     private static final String TAG = Response.class.getSimpleName();
 
-    public static final String data = "content";
+    public static final String content = "content";
     protected ABSHeader mHeader = new ABSHeader();
 
     public abstract void bodyReadFrom(JSONObject json);
@@ -30,6 +30,7 @@ public abstract class Response {
 
     public void readFrom(JSONObject json) {
         try {
+            mHeader.readFrom(json);
             bodyReadFrom(json);
         } catch (Exception e) {
             e.printStackTrace();

@@ -5,12 +5,21 @@ public interface Constants {
     //==============================================================================================
     // -------------------------------------------通用---------------------------------------------
 
-    String REQUEST_METHOD_GET = "GET";
-    String REQUEST_METHOD_POST = "POST";
-    String CHARSET_UTF_8 = "UTF-8";
+
     String MSG_KEY = "retMsg";
     String RET_CODE_KEY = "retCode";
     String RET_CODE_SUCCESS = "0000";
+
+    String LOCAL_KEY_SID = "SID";
+
+
+
+
+
+    String REQUEST_METHOD_GET = "GET";
+    String REQUEST_METHOD_POST = "POST";
+    String CHARSET_UTF_8 = "UTF-8";
+
     String DATA_KEY = "Data";
     String LOCAL_RET_CODE_NETWORK_EXCEPTION = "NetWork(-1)";    // 网络异常,超时，没有应答包 等
     int HTTP_CONNECT_TIMEOUT = 10 * 1000;                       // 网络连接超时时间
@@ -195,7 +204,7 @@ public interface Constants {
 
     String LOCAL_VOUCHER_KEY = "Voucher";
 
-    String LOCAL_SID_KEY = "SID";
+
 
     String LOCAL_PRICE_KEY = "Price";
 

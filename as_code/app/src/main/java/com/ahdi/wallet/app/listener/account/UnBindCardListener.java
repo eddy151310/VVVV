@@ -34,11 +34,6 @@ public class UnBindCardListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -46,11 +41,11 @@ public class UnBindCardListener implements HttpReqTaskListener {
         LoadingDialog.dismissDialog(loadingDialog);
         UnBindCardRsp resp = UnBindCardRsp.decodeJson(UnBindCardRsp.class, json);
         if (resp != null) {
-            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().RetCode)) {
-                BankCardSdkMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+            if (BankCardSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().retCode)) {
+                BankCardSdkMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
                 context.finish();
             } else {
-                checkErrorResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg);
+                checkErrorResult(resp.getmHeader().retCode, resp.getmHeader().retMsg);
             }
         } else {
             BankCardSdkMain.getInstance().onResultBack(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankCardSdkMain.getInstance().default_error, null);

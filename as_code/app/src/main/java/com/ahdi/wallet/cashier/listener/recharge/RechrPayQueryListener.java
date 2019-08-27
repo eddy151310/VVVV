@@ -41,10 +41,6 @@ public class RechrPayQueryListener implements HttpReqTaskListener {
         this.orderID = orderID;
     }
 
-    @Override
-    public void onPreExecute() {
-
-    }
 
     @Override
     public void onPostExecute(JSONObject json) {
@@ -52,9 +48,9 @@ public class RechrPayQueryListener implements HttpReqTaskListener {
             LogUtil.e(TAG, json.toString());
         }
         RechrPayResultRsp resp = RechrPayResultRsp.decodeJson(RechrPayResultRsp.class, json);
-        if (resp != null && TextUtils.equals(resp.getmHeader().RetCode, RechrCashierSdk.LOCAL_PAY_SUCCESS)) {
+        if (resp != null && TextUtils.equals(resp.getmHeader().retCode, RechrCashierSdk.LOCAL_PAY_SUCCESS)) {
             if (TextUtils.equals(resp.getRechargePayResult(), ConstantsPayment.PAY_OK)) {
-                onCallBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                onCallBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
 
             } else if (TextUtils.equals(resp.getRechargePayResult(), ConstantsPayment.PAY_FAIL)
                     || TextUtils.equals(resp.getRechargePayResult(), ConstantsPayment.PLAT_FAIL)) {

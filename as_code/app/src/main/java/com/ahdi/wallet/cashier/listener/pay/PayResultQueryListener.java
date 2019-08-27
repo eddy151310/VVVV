@@ -45,19 +45,14 @@ public class PayResultQueryListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         PayResultQueryResponse resp = PayResultQueryResponse.decodeJson(PayResultQueryResponse.class, json);
-        if (resp != null && TextUtils.equals(resp.getmHeader().RetCode, PayCashierSdk.LOCAL_PAY_SUCCESS)) {
+        if (resp != null && TextUtils.equals(resp.getmHeader().retCode, PayCashierSdk.LOCAL_PAY_SUCCESS)) {
             if (TextUtils.equals(resp.payResult, ConstantsPayment.PAY_OK)) {
-                onCallback(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                onCallback(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
 
             } else if (TextUtils.equals(resp.payResult, ConstantsPayment.PAY_FAIL)
                     || TextUtils.equals(resp.payResult, ConstantsPayment.PLAT_FAIL)) {

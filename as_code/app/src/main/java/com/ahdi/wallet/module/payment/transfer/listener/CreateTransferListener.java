@@ -29,21 +29,16 @@ public class CreateTransferListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e("CreateTransferResp", json.toString());
         }
         CreateTransferResp resp = CreateTransferResp.decodeJson(CreateTransferResp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, TransferSdk.LOCAL_PAY_SUCCESS)) {
+            if (TextUtils.equals(resp.getmHeader().retCode, TransferSdk.LOCAL_PAY_SUCCESS)) {
                 TransferMain.getInstance().pay(resp.getId(), resp.getPay(), sid, Constants.LOCAL_FROM_PAY);
             } else {
-                TransferMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, resp.getId());
+                TransferMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, resp.getId());
             }
         } else {
             TransferMain.getInstance().onResultBack(TransferSdk.LOCAL_PAY_SYSTEM_EXCEPTION, TransferMain.getInstance().default_error, null, "");

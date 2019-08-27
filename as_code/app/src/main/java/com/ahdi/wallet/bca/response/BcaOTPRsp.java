@@ -27,7 +27,7 @@ public class BcaOTPRsp extends Response {
         }
         LogUtil.e(TAG, TAG + json.toString());
 
-        JSONObject body = json.optJSONObject(data);
+        JSONObject body = json.optJSONObject(content);
         if (body == null) {
             return;
         }

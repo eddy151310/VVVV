@@ -26,6 +26,7 @@ import com.ahdi.lib.utils.utils.ScreenAdaptionUtil;
 import com.ahdi.lib.utils.utils.ToolUtils;
 import com.ahdi.lib.utils.utils.TouchIDStateUtil;
 import com.ahdi.lib.utils.widgets.PagerIndicatorView;
+import com.ahdi.wallet.GlobalApplication;
 import com.ahdi.wallet.R;
 import com.ahdi.wallet.app.ui.activities.biometric.TouchIDLoginActivity;
 import com.ahdi.wallet.app.ui.adapters.GuideAdapter;
@@ -149,16 +150,10 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     }
 
     private void goToLogin() {
-        String voucher = AppGlobalUtil.getInstance().getString(this, Constants.LOCAL_VOUCHER_KEY);
-        String LName = AppGlobalUtil.getInstance().getLName(this);
-
-        if (!TextUtils.isEmpty(LName) && !TextUtils.isEmpty(voucher)) {
-            // 自动登录, 仅判断是否开启指纹解锁功能
-            if (TouchIDStateUtil.isStartTouchIDUnlock(this, LName)) {
-                startActivity(new Intent(this, TouchIDLoginActivity.class));
-            } else {
-                ActivityManager.getInstance().openMainActivity(this);
-            }
+        //判断sid是否存在，执行自动登录
+        String sid = GlobalApplication.getApplication().getSID();
+        if (!TextUtils.isEmpty(sid)) {
+            ActivityManager.getInstance().openMainActivity(this);
         } else {
             ActivityManager.getInstance().openLoginActivity(this);
         }

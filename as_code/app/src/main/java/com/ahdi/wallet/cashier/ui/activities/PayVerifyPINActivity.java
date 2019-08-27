@@ -366,7 +366,7 @@ public class PayVerifyPINActivity extends PayBaseActivity {
             return;
         }
         Intent intent = new Intent(mContext, PayhubBcaOTPActivity.class);
-        intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+        intent.putExtra(Constants.LOCAL_KEY_SID, sid);
         intent.putExtra(Constants.LOCAL_FROM_KEY, from);
 
         if (from == Constants.LOCAL_FROM_PAY) {

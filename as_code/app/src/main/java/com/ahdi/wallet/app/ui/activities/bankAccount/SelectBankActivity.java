@@ -85,7 +85,7 @@ public class SelectBankActivity extends AppBaseActivity {
 
     private void initIntentData(Intent intent) {
         if (intent != null) {
-            sid = intent.getStringExtra(Constants.LOCAL_SID_KEY);
+            sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
         }
     }
 

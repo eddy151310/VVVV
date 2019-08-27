@@ -37,21 +37,16 @@ public class RechrOrderListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         RechrOrderRsp resp = RechrOrderRsp.decodeJson(RechrOrderRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().RetCode)) {
+            if (TextUtils.equals(PayCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retCode)) {
                 if (!TextUtils.isEmpty(resp.PayParam)) {
                     // callback关闭支付密码验证界面, 打开 bca otp 界面
-                    callBack.onResult(RechrCashierSdk.LOCAL_PAY_OTP_VERIFY, resp.getmHeader().ErrMsg, json, resp.OT, resp.orderID);
+                    callBack.onResult(RechrCashierSdk.LOCAL_PAY_OTP_VERIFY, resp.getmHeader().retMsg, json, resp.OT, resp.orderID);
 
                 } else {
                     TouchSchema touchSchema = resp.getTouchSchema();
@@ -68,7 +63,7 @@ public class RechrOrderListener implements HttpReqTaskListener {
                     RechrCashierMain.getInstance().rechargePayResultQuery(context, resp.OT, resp.orderID, callBack);
                 }
             } else {
-                onCallback(json, resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, resp.orderID);
+                onCallback(json, resp.getmHeader().retCode, resp.getmHeader().retMsg, resp.orderID);
             }
         } else {
             onCallback(json, RechrCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, RechrCashierMain.getInstance().default_error, "");

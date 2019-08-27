@@ -170,7 +170,7 @@ public class AccountSdkMain {
                     //校验支付密码成功, 打开绑定银行账户界面
                     Intent intent = new Intent(context, AddBankAccountActivity.class);
                     intent.putExtra(Constants.LOCAL_TOKEN_KEY, token);
-                    intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+                    intent.putExtra(Constants.LOCAL_KEY_SID, sid);
                     context.startActivity(intent);
                 }
             }
@@ -232,11 +232,6 @@ public class AccountSdkMain {
     public void closeTouchIDPay(String sid) {
         HttpReqApp.getInstance().onCloseTouchIDPay(new CloseTouchIDPayReq(sid),
                 new HttpReqTaskListener() {
-                    @Override
-                    public void onPreExecute() {
-
-                    }
-
                     @Override
                     public void onPostExecute(JSONObject json) {
                         if (json == null) {

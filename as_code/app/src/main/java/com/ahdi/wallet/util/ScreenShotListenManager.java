@@ -172,7 +172,7 @@ public class ScreenShotListenManager {
                 return;
             }
             if (!cursor.moveToFirst()) {
-                LogUtil.e(TAG, "Cursor no data.");
+                LogUtil.e(TAG, "Cursor no content.");
                 return;
             }
 

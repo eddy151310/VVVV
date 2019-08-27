@@ -24,11 +24,6 @@ public class QueryBindAccountInfoListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -39,10 +34,10 @@ public class QueryBindAccountInfoListener implements HttpReqTaskListener {
         }
         QueryBankAccountInfoRsp resp = QueryBankAccountInfoRsp.decodeJson(QueryBankAccountInfoRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, BankAccountSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, BankAccountSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(BankAccountSdk.LOCAL_PAY_SYSTEM_EXCEPTION, PayCashierMain.getInstance().default_error, null);

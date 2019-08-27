@@ -39,18 +39,13 @@ public class RechrListQueryListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         RechrListQueryRsp resp = RechrListQueryRsp.decodeJson(RechrListQueryRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(RechrCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().RetCode)) {
+            if (TextUtils.equals(RechrCashierSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retCode)) {
                 CashierPricing.getInstance(context).notifyQueryChargeListResponse(resp);
                 // 打开收银台界面
                 if (!isAgain) {
@@ -62,17 +57,17 @@ public class RechrListQueryListener implements HttpReqTaskListener {
                 } else {
                     // 重新批价 刷新充值收银台数据
                     if (callBack != null) {
-                        callBack.onCallback(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                        callBack.onCallback(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
                     }
                 }
             } else {
-                RechrCashierMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, "");
+                RechrCashierMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, "");
                 if (isAgain) {
                     ((Activity) context).finish();
                 }
             }
         } else {
-            RechrCashierMain.getInstance().onResultBack(RechrCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().ErrMsg, json, "");
+            RechrCashierMain.getInstance().onResultBack(RechrCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, resp.getmHeader().retMsg, json, "");
         }
     }
 

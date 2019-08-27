@@ -35,11 +35,6 @@ public class UnBindAccountListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -47,11 +42,11 @@ public class UnBindAccountListener implements HttpReqTaskListener {
         LoadingDialog.dismissDialog(loadingDialog);
         UnBindAccountRsp resp = UnBindCardRsp.decodeJson(UnBindAccountRsp.class, json);
         if (resp != null) {
-            if (BankAccountSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().RetCode)) {
-                BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (BankAccountSdk.LOCAL_PAY_SUCCESS.equals(resp.getmHeader().retCode)) {
+                BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
                 context.finish();
             } else {
-                checkErrorResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg);
+                checkErrorResult(resp.getmHeader().retCode, resp.getmHeader().retMsg);
             }
         } else {
             BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankAccountSdkMain.getInstance().default_error, null);

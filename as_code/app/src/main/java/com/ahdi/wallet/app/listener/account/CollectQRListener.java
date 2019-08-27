@@ -20,20 +20,16 @@ public class CollectQRListener implements HttpReqTaskListener {
     private static final String TAG = CollectQRListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         CollectQRCodeRsp resp = CollectQRCodeRsp.decodeJson(CollectQRCodeRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, QRCodeSdk.LOCAL_PAY_SUCCESS)) {
-                QRCodeMain.getInstance().onResultBack(QRCodeSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, QRCodeSdk.LOCAL_PAY_SUCCESS)) {
+                QRCodeMain.getInstance().onResultBack(QRCodeSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                QRCodeMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                QRCodeMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             QRCodeMain.getInstance().onResultBack(QRCodeSdk.LOCAL_PAY_SYSTEM_EXCEPTION, QRCodeMain.getInstance().default_error, null);

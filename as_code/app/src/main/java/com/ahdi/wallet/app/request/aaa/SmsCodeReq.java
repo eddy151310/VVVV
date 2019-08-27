@@ -15,6 +15,8 @@ import org.json.JSONObject;
  */
 public class SmsCodeReq extends Request {
 
+    private static final String TAG = SmsCodeReq.class.getSimpleName();
+
     private String phoneNumber;
 
     /**
@@ -37,7 +39,7 @@ public class SmsCodeReq extends Request {
         JSONObject content = new JSONObject();
         try {
 
-            content.put("reqId", "123");//通讯流水
+            content.put("reqId", TAG);//通讯流水
 
             if (!TextUtils.isEmpty(phoneNumber)) {
                 content.put("mobile", phoneNumber);
@@ -51,7 +53,7 @@ public class SmsCodeReq extends Request {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        LogUtil.d("SmsCodeReq", "SmsCodeReq: " + json.toString());
+        LogUtil.d(TAG, TAG + ": " + json.toString());
         return json;
     }
 }

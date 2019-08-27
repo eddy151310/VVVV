@@ -40,7 +40,7 @@ public class ReceiverPushMsg extends BroadcastReceiver {
         if (intent != null) {
             Bundle data = intent.getBundleExtra("todo");// TODO: 2019/7/9  
             if (data == null) {
-                LogUtil.e(TAG, " ---push --- data --- null ---");
+                LogUtil.e(TAG, " ---push --- content --- null ---");
                 return;
             }
             LogUtil.d(TAG, "-----------------APP业务层 收到push---start-------------" );

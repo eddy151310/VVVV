@@ -21,7 +21,7 @@ public class ScanCheckRsp extends Response {
             return;
         }
 
-        JSONObject dataJson = json.optJSONObject(data);
+        JSONObject dataJson = json.optJSONObject(content);
         if (dataJson == null) {
             return;
         }

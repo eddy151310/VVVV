@@ -112,11 +112,6 @@ public class PhoneAreaCodeActivity extends AppBaseActivity {
         LoadingDialog loadingDialog = showLoading();
         HttpReqApp.getInstance().getPhoneAreaCode(request, new HttpReqTaskListener() {
             @Override
-            public void onPreExecute() {
-
-            }
-
-            @Override
             public void onPostExecute(JSONObject json) {
                 loadingDialog.dismiss();
                 if (json != null) {
@@ -124,7 +119,7 @@ public class PhoneAreaCodeActivity extends AppBaseActivity {
                 }
                 PhoneAreaCodeRsp resp = PhoneAreaCodeRsp.decodeJson(PhoneAreaCodeRsp.class, json);
                 if (resp != null) {
-                    if (TextUtils.equals(resp.getmHeader().RetCode, UserSdk.LOCAL_PAY_SUCCESS)) {
+                    if (TextUtils.equals(resp.getmHeader().retCode, UserSdk.LOCAL_PAY_SUCCESS)) {
                         if (resp.version > 0 && resp.phoneAreaCodeSchemas != null && resp.phoneAreaCodeSchemas.length > 0) {
                             AppGlobalUtil.getInstance().putString(AppGlobalUtil.getInstance().getContext(), Constants.LOCAL_PHONE_AREA_KEY, resp.version + "");
                             PhoneAreaCodeSdkMain.getInstance().phoneAreaCodeSchemas = resp.phoneAreaCodeSchemas;
@@ -132,7 +127,7 @@ public class PhoneAreaCodeActivity extends AppBaseActivity {
                         }
                         updateUI();
                     } else {
-                        showToast(resp.getmHeader().ErrMsg);
+                        showToast(resp.getmHeader().retMsg);
                     }
                 } else {
                     LogUtil.d(TAG, TAG + "解析之后为空");

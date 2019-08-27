@@ -15,21 +15,16 @@ public class BankAccountListListener implements HttpReqTaskListener {
     private static final String TAG = BankAccountListListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         BankAccountListRsp resp = BankAccountListRsp.decodeJson(BankAccountListRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, BankAccountSdk.LOCAL_PAY_SUCCESS)) {
-                BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, BankAccountSdk.LOCAL_PAY_SUCCESS)) {
+                BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                BankAccountSdkMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                BankAccountSdkMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             BankAccountSdkMain.getInstance().onResultBack(BankAccountSdk.LOCAL_PAY_SYSTEM_EXCEPTION, BankAccountSdkMain.getInstance().default_error, null);

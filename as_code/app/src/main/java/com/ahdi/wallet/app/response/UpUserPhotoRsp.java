@@ -38,10 +38,10 @@ public class UpUserPhotoRsp extends Response {
         if (json == null){
             return;
         }
-        mHeader.RetCode = json.optString("code");
-        mHeader.ErrMsg = json.optString("msg");
+        mHeader.retCode = json.optString("code");
+        mHeader.retMsg = json.optString("msg");
 
-        JSONArray bodyArray = json.optJSONArray("data");
+        JSONArray bodyArray = json.optJSONArray("content");
         if (bodyArray == null) {
             return;
         }

@@ -20,21 +20,16 @@ public class QueryWDBankCardInfoListener implements HttpReqTaskListener {
     private static final String TAG = QueryWDBankCardInfoListener.class.getSimpleName();
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
         }
         WDQueryBankCardInfoResp resp = WDQueryBankCardInfoResp.decodeJson(WDQueryBankCardInfoResp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, WithDrawSdk.LOCAL_PAY_SUCCESS)) {
-                WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json, "");
+            if (TextUtils.equals(resp.getmHeader().retCode, WithDrawSdk.LOCAL_PAY_SUCCESS)) {
+                WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json, "");
             } else {
-                WithDrawMain.getInstance().onResultBack(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json, "");
+                WithDrawMain.getInstance().onResultBack(resp.getmHeader().retCode, resp.getmHeader().retMsg, json, "");
             }
         } else {
             WithDrawMain.getInstance().onResultBack(WithDrawSdk.LOCAL_PAY_SYSTEM_EXCEPTION, WithDrawMain.getInstance().default_error, null, "");

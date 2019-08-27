@@ -16,11 +16,6 @@ public class BcaAsyncNotifyListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         LogUtil.d(TAG,"--BCA异步上报通知结果接口---"+json.toString());
     }

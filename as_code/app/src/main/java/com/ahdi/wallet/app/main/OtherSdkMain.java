@@ -142,11 +142,6 @@ public class OtherSdkMain {
         HttpReqApp.getInstance().onPayReport(new PayReportReq(reportType, reportData, sid), new HttpReqTaskListener() {
 
             @Override
-            public void onPreExecute() {
-
-            }
-
-            @Override
             public void onPostExecute(JSONObject json) {
                 if (json != null) {
                     LogUtil.e(TAG, "支付上报响应数据: " + json.toString());

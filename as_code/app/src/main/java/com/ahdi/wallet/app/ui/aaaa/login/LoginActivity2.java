@@ -24,7 +24,11 @@ import android.widget.TextView;
 
 import com.ahdi.lib.utils.base.AppBaseActivity;
 import com.ahdi.lib.utils.config.ConfigSP;
+import com.ahdi.lib.utils.config.Constants;
+import com.ahdi.lib.utils.network.HttpReqTaskListener;
 import com.ahdi.lib.utils.utils.AppGlobalUtil;
+import com.ahdi.lib.utils.utils.ProfileUserUtil;
+import com.ahdi.wallet.GlobalApplication;
 import com.ahdi.wallet.R;
 import com.ahdi.lib.utils.base.ActivityManager;
 import com.ahdi.lib.utils.base.BaseEditTextWatcher;
@@ -39,7 +43,12 @@ import com.ahdi.lib.utils.utils.StatusBarUtil;
 import com.ahdi.lib.utils.widgets.DeleteEditText;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
+import com.ahdi.wallet.app.HttpReqApp;
 import com.ahdi.wallet.app.callback.UserSdkCallBack;
+import com.ahdi.wallet.app.listener.user.VerifyCodeListener;
+import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
+import com.ahdi.wallet.app.request.aaa.SmsCodeReq;
+import com.ahdi.wallet.app.response.aaa.LoginSMSRsp;
 import com.ahdi.wallet.app.response.aaa.SmsCodeRsp;
 import com.ahdi.wallet.app.sdk.UserSdk;
 import com.ahdi.wallet.app.ui.adapters.listener.PhoneTextWatcher;
@@ -134,8 +143,11 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
 
     private void initData() {
         String loginName = "15601234442";
+        String smsCode = "666666";
         phoneEdit.setText(loginName);
         phoneEdit.setSelection(loginName.length());
+        codeEdit.setText(smsCode);
+        codeEdit.setSelection(smsCode.length());
     }
 
     /**
@@ -219,6 +231,41 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * 登录(SMS)
+     */
+    private void login(@NonNull String smsCode) {
+        loadingDialog = showLoading();
+        LogUtil.d(TAG, "执行登录");
+        if(smsCodeRsp != null && !TextUtils.isEmpty(smsCodeRsp.orderId)){
+            LoginSMSReq request = new LoginSMSReq(phoneEdit.getText().toString().trim() ,smsCode , smsCodeRsp.orderId);
+            HttpReqApp.getInstance().onLoginSMS(request, new HttpReqTaskListener() {
+
+                @Override
+                public void onPostExecute(@NonNull JSONObject json) {
+                    loadingDialog.dismiss();
+                    LogUtil.d(TAG,   "解析json :" + json);
+                    ToastUtil.showToastAtCenterLong(LoginActivity2.this , smsCodeRsp.getmHeader().retCode + smsCodeRsp.getmHeader().retMsg );
+                    LoginSMSRsp mLoginSMSRsp = LoginSMSRsp.decodeJson(LoginSMSRsp.class ,json);
+                    if(mLoginSMSRsp.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
+                        GlobalApplication.getApplication().setSID(mLoginSMSRsp.sid);
+                        GlobalApplication.getApplication().setUserID(mLoginSMSRsp.userId);
+                    }
+
+                }
+
+                @Override
+                public void onError(@NonNull JSONObject json) {
+                    LogUtil.d(TAG,   "解析json onError :" + json);
+                    loadingDialog.dismiss();
+                }
+            });
+        }else{
+            ToastUtil.showToastAtCenterLong(LoginActivity2.this ,"SMS orderID is null");
+        }
+
+    }
+
 
     /**
      * 获取短信验证码
@@ -228,14 +275,21 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
         loadingDialog = showLoading();
         LogUtil.d(TAG, "点击发送验证码按钮");
         //13001163475
-        UserSdk.getSMSCode(this, phoneEdit.getText().toString().trim(), new UserSdkCallBack() {
+        SmsCodeReq request = new SmsCodeReq(phoneEdit.getText().toString().trim());
+        HttpReqApp.getInstance().onSMSCode(request, new HttpReqTaskListener() {
+
             @Override
-            public void onResult(String code, String errorMsg, JSONObject jsonObject) {
+            public void onPostExecute(JSONObject json) {
                 loadingDialog.dismiss();
-                ToastUtil.showToastAtCenterLong(LoginActivity2.this , code + errorMsg );
-                if(code.equals(UserSdk.LOCAL_PAY_SUCCESS)){
-                    smsCodeRsp = SmsCodeRsp.decodeJson(SmsCodeRsp.class, jsonObject);
-                }
+                LogUtil.d(TAG,   "解析json :" + json);
+                smsCodeRsp = SmsCodeRsp.decodeJson(SmsCodeRsp.class, json);
+                ToastUtil.showToastAtCenterLong(LoginActivity2.this , smsCodeRsp.getmHeader().retCode + smsCodeRsp.getmHeader().retMsg );
+            }
+
+            @Override
+            public void onError(JSONObject json) {
+                LogUtil.d(TAG,   "解析json onError :" + json);
+                loadingDialog.dismiss();
             }
         });
         detailOTP(false);
@@ -293,21 +347,6 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
     }
 
 
-    /**
-     * 登录(SMS)
-     */
-    private void login(String smsCode) {
-        loadingDialog = showLoading();
-        LogUtil.d(TAG, "执行登录");
-        UserSdk.loginSMS(this, phoneEdit.getText().toString().trim(), smsCode , smsCodeRsp.orderId , new UserSdkCallBack() {
-            @Override
-            public void onResult(String code, String errorMsg, JSONObject jsonObject) {
-                loadingDialog.dismiss();
-                ToastUtil.showToastAtCenterLong(LoginActivity2.this , code + errorMsg );
-               // ActivityManager.getInstance().openMainActivity(this);
-            }
-        });
-    }
 
     /**
      * 初始化布局变化监听

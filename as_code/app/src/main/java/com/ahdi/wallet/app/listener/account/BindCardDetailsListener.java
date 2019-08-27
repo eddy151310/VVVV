@@ -24,11 +24,6 @@ public class BindCardDetailsListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -39,10 +34,10 @@ public class BindCardDetailsListener implements HttpReqTaskListener {
         }
         BindCardDetailsRsp resp = SelectCardTypeRsp.decodeJson(BindCardDetailsRsp.class, json);
         if (resp != null) {
-            if (TextUtils.equals(resp.getmHeader().RetCode, BankCardSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().ErrMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, BankCardSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(BankCardSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(BankCardSdk.LOCAL_PAY_SYSTEM_EXCEPTION, PayCashierMain.getInstance().default_error, null);

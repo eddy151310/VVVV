@@ -26,11 +26,6 @@ public class RePricingListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, json.toString());
@@ -41,7 +36,7 @@ public class RePricingListener implements HttpReqTaskListener {
         }
         PricingResponse resp = PricingResponse.decodeJson(PricingResponse.class, json);
         if (resp != null) {
-            callBack.onResult(resp.getmHeader().RetCode, resp.getmHeader().ErrMsg, json);
+            callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
 
         } else {
             callBack.onResult(PayCashierSdk.LOCAL_PAY_SYSTEM_EXCEPTION, PayCashierMain.getInstance().default_error, null);

@@ -102,7 +102,7 @@ public class PayhubBcaOTPActivity extends PayBaseActivity {
         from = intent.getIntExtra(Constants.LOCAL_FROM_KEY, -100);
         ot = intent.getStringExtra(Constants.LOCAL_OT_KEY);
         tt = intent.getStringExtra(Constants.LOCAL_TT_KEY);
-        sid = intent.getStringExtra(Constants.LOCAL_SID_KEY);
+        sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
         orderID = intent.getStringExtra("orderIDKey");
         PayOrderSchema payOrderSchema = (PayOrderSchema) intent.getSerializableExtra(Constants.LOCAL_PAY_ORDER_KEY);
         if (payOrderSchema == null) {

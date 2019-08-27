@@ -16,6 +16,8 @@ import org.json.JSONObject;
  */
 public class LoginSMSReq extends Request {
 
+    private static final String TAG = LoginSMSReq.class.getSimpleName();
+
     private String mobile;
     private String smsCode;
     private String orderId;
@@ -41,7 +43,7 @@ public class LoginSMSReq extends Request {
         JSONObject content = new JSONObject();
         try {
 
-            content.put("reqId", "123");//通讯流水
+            content.put("reqId", TAG);//通讯流水
 
             if (!TextUtils.isEmpty(mobile)) {
                 content.put("mobile", mobile);
@@ -61,7 +63,7 @@ public class LoginSMSReq extends Request {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        LogUtil.d("LoginSMSReq", "LoginSMSReq: " + json.toString());
+        LogUtil.d("LoginSMSRsp", "LoginSMSRsp: " + json.toString());
         return json;
     }
 }

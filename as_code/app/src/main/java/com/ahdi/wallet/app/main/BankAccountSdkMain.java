@@ -94,7 +94,7 @@ public class BankAccountSdkMain {
         if (!TextUtils.isEmpty(ST)) {
             Intent intent = new Intent(context, BankAccountEnterPwdActivity.class);
             intent.putExtra(Constants.LOCAL_BID_KEY, ST);
-            intent.putExtra(Constants.LOCAL_SID_KEY, sid);
+            intent.putExtra(Constants.LOCAL_KEY_SID, sid);
             context.startActivity(intent);
         } else {
             LogUtil.e(TAG, "bid is empty");

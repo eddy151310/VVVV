@@ -29,11 +29,6 @@ public class VerifyCodeListener implements HttpReqTaskListener {
     }
 
     @Override
-    public void onPreExecute() {
-
-    }
-
-    @Override
     public void onPostExecute(JSONObject json) {
         if (json != null) {
             LogUtil.e(TAG, "doInBackground响应数据: " + json.toString());
@@ -44,10 +39,10 @@ public class VerifyCodeListener implements HttpReqTaskListener {
             return;
         }
         if (resp != null) {
-            if (TextUtils.equals(resp.retCode, UserSdk.LOCAL_PAY_SUCCESS)) {
-                callBack.onResult(UserSdk.LOCAL_PAY_SUCCESS, resp.retMsg, json);
+            if (TextUtils.equals(resp.getmHeader().retCode, UserSdk.LOCAL_PAY_SUCCESS)) {
+                callBack.onResult(UserSdk.LOCAL_PAY_SUCCESS, resp.getmHeader().retMsg, json);
             } else {
-                callBack.onResult(resp.retCode, resp.retMsg, json);
+                callBack.onResult(resp.getmHeader().retCode, resp.getmHeader().retMsg, json);
             }
         } else {
             callBack.onResult(UserSdk.LOCAL_PAY_SYSTEM_EXCEPTION, UserSdkMain.getInstance().default_error, null);
