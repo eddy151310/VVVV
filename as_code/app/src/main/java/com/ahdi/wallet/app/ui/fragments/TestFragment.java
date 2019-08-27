@@ -30,6 +30,7 @@ import com.ahdi.wallet.app.callback.OtherSdkCallBack;
 import com.ahdi.wallet.app.main.AppMain;
 import com.ahdi.wallet.app.response.BannerInfoRsp;
 import com.ahdi.wallet.app.schemas.BannerSchema;
+import com.ahdi.wallet.app.ui.aaaa.ProfileActivity2;
 import com.ahdi.wallet.app.ui.activities.AppMainActivity;
 import com.ahdi.wallet.app.ui.activities.poi.PoiSearchActivity;
 import com.ahdi.wallet.app.ui.fragments.home.adapter.ViewPageAdapter;
@@ -247,6 +248,10 @@ public class TestFragment extends BaseFragment implements View.OnClickListener {
                 Intent intent = new Intent(mActivity, PoiSearchActivity.class);
                 intent.putExtra(KEY_PUT_EXTRA_POI , btn_back.getText().toString());
                 startActivityForResult(intent ,FROM_REQUEST);
+                break;
+            case R.id.btn_next:
+                Intent it = new Intent(mActivity, ProfileActivity2.class);
+                startActivity(it);
                 break;
         }
     }

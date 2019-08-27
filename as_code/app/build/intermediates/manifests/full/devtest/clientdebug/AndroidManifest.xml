@@ -60,6 +60,7 @@
             android:process=":remote" >
         </service>
 
+        <!-- 新添加的activity -->
         <activity
             android:name="com.ahdi.wallet.app.ui.aaaa.login.LoginActivity2"
             android:screenOrientation="portrait"
@@ -68,6 +69,9 @@
             android:name="com.ahdi.wallet.app.ui.aaaa.ServiceDetailsActivity2"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.ahdi.wallet.app.ui.aaaa.ProfileActivity2"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.ahdi.wallet.app.ui.activities.SplashActivity"
             android:screenOrientation="portrait"
@@ -78,6 +82,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 新添加的activity  end -->
+
         <activity
             android:name="com.ahdi.wallet.app.ui.activities.login.LoginActivity"
             android:screenOrientation="portrait"
