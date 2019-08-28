@@ -3,8 +3,8 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()  //ERROR: Failed to resolve: support-fragment Modules: app 解决方式：把google放到jcenter前面就可以了
         jcenter()
-        google()
         maven { url 'https://maven.google.com' }
 
     }
@@ -16,8 +16,8 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        jcenter()
         google()
+        jcenter()
         maven { url 'https://maven.google.com' }
     }
 }
