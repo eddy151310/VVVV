@@ -93,6 +93,7 @@ public class ProfileActivity2 extends AppBaseActivity {
         setContentView(R.layout.activity_profile);
         initCommonTitle(getString(R.string.Profile_A0));
         initView();
+        getUserinfo();
     }
 
     public void initView() {
@@ -121,8 +122,6 @@ public class ProfileActivity2 extends AppBaseActivity {
     }
 
     private void initData() {
-
-        getUserinfo();
 
         UserData userData = ProfileUserUtil.getInstance().getUserData();
         if (userData == null) {
