@@ -675,9 +675,9 @@ public final class R {
         public static int titleDividerNoCustom = 0x7f0c0268;
         public static int title_template = 0x7f0c026c;
         public static int topPanel = 0x7f0c026f;
-        public static int uniform = 0x7f0c0357;
-        public static int up = 0x7f0c0358;
-        public static int wrap_content = 0x7f0c037a;
+        public static int uniform = 0x7f0c0356;
+        public static int up = 0x7f0c0357;
+        public static int wrap_content = 0x7f0c0379;
     }
     public static final class integer {
         public static int abc_config_activityDefaultDur = 0x7f0d0001;

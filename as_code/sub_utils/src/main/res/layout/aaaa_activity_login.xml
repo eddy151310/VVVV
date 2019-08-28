@@ -53,18 +53,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/dp_5" />
 
-            <!--手机号码错误提示-->
-            <TextView
-                android:id="@+id/tv_login_number_error_tip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginTop="@dimen/dp_5"
-                android:text="错误"
-                android:textColor="@color/CC_1A1B24"
-                android:textSize="@dimen/dp_12"
-                android:visibility="gone" />
-
             <!--验证码-->
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -57,7 +57,7 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
 
     private EditText phoneEdit;
     private DeleteEditText codeEdit;
-    private TextView tv_login_number_error_tip, tv_send_code, btn_submit, tv_agreement;
+    private TextView tv_send_code, btn_submit, tv_agreement;
     private LinearLayout ll_agreement;
     private ScrollView scrollView;
 
@@ -93,7 +93,6 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
 
         ((TextView)findViewById(R.id.tv_area_code)).setText("+86");
         phoneEdit = findViewById(R.id.et_login_phone_number);
-        tv_login_number_error_tip = findViewById(R.id.tv_login_number_error_tip);
 
         codeEdit = findViewById(R.id.et_verify_code);
         tv_send_code = findViewById(R.id.tv_send_code);
@@ -125,15 +124,6 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
                 updateViewState();
             }
         });
-
-        codeEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus && !verifyAccount()){
-                    tv_login_number_error_tip.setVisibility(View.VISIBLE);
-                }
-            }
-        });
     }
 
     private void initData() {
@@ -150,7 +140,6 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
      */
     public void updateViewState() {
         if (verifyAccount()){
-            tv_login_number_error_tip.setVisibility(View.GONE);
             //账号输入符合规则之后如果正在倒计时不可以把发送按钮设置为可用
             if (!isCountdowning){
                 tv_send_code.setEnabled(true);

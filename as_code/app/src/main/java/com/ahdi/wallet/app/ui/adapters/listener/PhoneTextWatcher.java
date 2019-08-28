@@ -54,12 +54,7 @@ public class PhoneTextWatcher implements TextWatcher {
             changeFilter = true;
         }
         if (!TextUtils.isEmpty(account) && changeFilter) {
-            if (TextUtils.equals(areaCode, ConfigCountry.KEY_AREA_CODE)) {
-                addFilter(getFourteenFilter());
-
-            } else {
-                addFilter(getFifteenFilter());
-            }
+            addFilter(getMAXFilter());
             changeFilter = false;
         } else if (TextUtils.isEmpty(account)) {
             changeFilter = true;
@@ -103,40 +98,14 @@ public class PhoneTextWatcher implements TextWatcher {
     }
 
     /**
-     * 获取长度为13的filter
+     * 获取长度为 filter
      *
      * @return
      */
-    private InputFilter.LengthFilter getThirteenFilter() {
-
-        if (phoneThirteenFilter == null) {
-            phoneThirteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_11);
-        }
-        return phoneThirteenFilter;
-    }
-
-    /**
-     * 获取长度为14的filter
-     *
-     * @return
-     */
-    private InputFilter.LengthFilter getFourteenFilter() {
-
-        if (phoneFourteenFilter == null) {
-            phoneFourteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_14);
-        }
-        return phoneFourteenFilter;
-    }
-
-    /**
-     * 获取长度为15的filter
-     *
-     * @return
-     */
-    private InputFilter.LengthFilter getFifteenFilter() {
+    private InputFilter.LengthFilter getMAXFilter() {
 
         if (phoneFifteenFilter == null) {
-            phoneFifteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_15);
+            phoneFifteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_11);
         }
         return phoneFifteenFilter;
     }

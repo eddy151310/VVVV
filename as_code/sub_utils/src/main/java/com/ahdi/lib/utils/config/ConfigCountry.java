@@ -37,7 +37,7 @@ public interface ConfigCountry {
 
     int PHONE_LIMIT_MIN_LENGTH_8 = 8;                   // 限制手机号最小长度 印尼手机号
 
-    int PHONE_LIMIT_MAX_LENGTH_11 = 11;                 // 限制登录账号最大长度13
+    int PHONE_LIMIT_MAX_LENGTH_11 = 11;                 // 限制登录账号最大长度11
 
     int PHONE_LIMIT_MAX_LENGTH_14 = 14;                 // 限制登录账号最大长度14 印尼手机号
 
