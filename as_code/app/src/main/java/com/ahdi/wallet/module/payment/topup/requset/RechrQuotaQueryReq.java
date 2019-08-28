@@ -33,4 +33,9 @@ public class RechrQuotaQueryReq extends Request {
         LogUtil.e(TAG, "查询充值额度: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

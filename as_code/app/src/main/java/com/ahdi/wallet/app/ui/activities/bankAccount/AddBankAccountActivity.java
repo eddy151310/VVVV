@@ -84,7 +84,7 @@ public class AddBankAccountActivity extends AppBaseActivity {
         Intent intent = getIntent();
         if (intent != null) {
             token = intent.getStringExtra(Constants.LOCAL_TOKEN_KEY);
-            sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
+            sid = intent.getStringExtra(Constants.SP_KEY_SID);
         }
     }
 
@@ -96,7 +96,7 @@ public class AddBankAccountActivity extends AppBaseActivity {
         int i = view.getId();
         if (i == R.id.re_select_bank) {
             Intent intent = new Intent(this, SelectBankActivity.class);
-            intent.putExtra(Constants.LOCAL_KEY_SID, sid);
+            intent.putExtra(Constants.SP_KEY_SID, sid);
             startActivityForResult(intent, REQUEST_CODE_SELECT_BANK_ACCOUNT);
 
         } else if (i == R.id.btn_add_bank_account_confirm) {

@@ -88,7 +88,7 @@ public class ApplyBindCardListener implements HttpReqTaskListener {
         if (context != null) {
             Intent intent = new Intent(context, BankCardPayWebActivity.class);
             intent.putExtra(Constants.LOCAL_WEB_VIEW_URL_KEY, url);
-            intent.putExtra(Constants.LOCAL_KEY_SID, sid);
+            intent.putExtra(Constants.SP_KEY_SID, sid);
             context.startActivity(intent);
         }
     }

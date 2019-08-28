@@ -47,4 +47,9 @@ public class ResetLoginPwdReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

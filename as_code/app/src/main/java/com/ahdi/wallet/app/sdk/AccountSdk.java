@@ -161,7 +161,7 @@ public class AccountSdk {
         AccountSdkMain.getInstance().checkPayPwdCallback = callBack;
 
         Intent intent = new Intent(context, CheckPayPwdActivity.class);
-        intent.putExtra(Constants.LOCAL_KEY_SID, sid);
+        intent.putExtra(Constants.SP_KEY_SID, sid);
         intent.putExtra(Constants.LOCAL_TTYPE_KEY, TType);
         context.startActivity(intent);
     }

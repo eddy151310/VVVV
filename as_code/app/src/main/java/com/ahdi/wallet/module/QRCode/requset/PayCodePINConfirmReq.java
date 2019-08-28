@@ -71,4 +71,9 @@ public class PayCodePINConfirmReq extends Request {
         LogUtil.e(TAG, "AuthCodeConfirm pay码 密码确认 or 用户主动取消 --- : " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

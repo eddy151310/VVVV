@@ -33,5 +33,8 @@ public class BankAccountListReq extends Request {
         LogUtil.e("BankAccountListReq", json.toString());
         return json;
     }
-
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

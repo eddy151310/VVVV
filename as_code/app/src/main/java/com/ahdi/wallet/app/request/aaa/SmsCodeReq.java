@@ -30,10 +30,11 @@ public class SmsCodeReq extends Request {
 
     @Override
     protected JSONObject bodyWriteTo(JSONObject json) {
-        if (json == null)
-            return null;
+            return json;
+    }
 
-        JSONObject body = new JSONObject();
+    @Override
+    protected JSONObject getContentJson() {
 
         JSONObject content = new JSONObject();
         try {
@@ -43,16 +44,9 @@ public class SmsCodeReq extends Request {
             if (!TextUtils.isEmpty(phoneNumber)) {
                 content.put("mobile", phoneNumber);
             }
-
-            body.put(CONTENT , content); //body包含的第一部分 content
-            body.put(CONTENT_SIGN, md5WithContent(content.toString()));//body包含的第二部分 contentSign
-
-            json.put(BODY ,body);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        LogUtil.d(TAG, TAG + ": " + json.toString());
-        return json;
+        return content;
     }
 }

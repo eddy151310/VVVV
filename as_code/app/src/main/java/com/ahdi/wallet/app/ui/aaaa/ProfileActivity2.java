@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,10 +19,12 @@ import com.ahdi.lib.utils.network.HttpReqTaskListener;
 import com.ahdi.lib.utils.takephoto.TakePhotoMain;
 import com.ahdi.lib.utils.takephoto.callback.TakePhotoCallBack;
 import com.ahdi.lib.utils.takephoto.util.ImageUtil;
+import com.ahdi.lib.utils.utils.AppGlobalUtil;
 import com.ahdi.lib.utils.utils.DateUtil;
 import com.ahdi.lib.utils.utils.LogUtil;
 import com.ahdi.lib.utils.utils.ProfileUserUtil;
 import com.ahdi.lib.utils.utils.StringUtil;
+import com.ahdi.lib.utils.widgets.CheckSafety;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.datepicker.DatePickerView;
 import com.ahdi.lib.utils.widgets.dialog.ListSelectDialog;
@@ -39,6 +42,10 @@ import com.ahdi.wallet.app.response.aaa.UserInfoRsp;
 import com.ahdi.wallet.app.schemas.AvatarSchema;
 import com.ahdi.wallet.app.schemas.UserSchema;
 import com.ahdi.wallet.app.sdk.UserSdk;
+import com.ahdi.wallet.app.ui.activities.bankAccount.BankAccountActivity;
+import com.ahdi.wallet.app.ui.activities.bankCard.BankCardsActivity;
+import com.ahdi.wallet.app.ui.activities.other.SettingsActivity;
+import com.ahdi.wallet.app.ui.activities.payPwd.PayPwdGuideSetActivity;
 import com.ahdi.wallet.app.ui.activities.userInfo.ModifyUserInfoActivity;
 import com.ahdi.wallet.app.ui.widgets.SelectPhotoView;
 
@@ -75,6 +82,8 @@ public class ProfileActivity2 extends AppBaseActivity {
     private int gender;
     private int defaultSelect = 0;
 
+    private Button btnNext  ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +114,10 @@ public class ProfileActivity2 extends AppBaseActivity {
         user_email = findViewById(R.id.user_email);
         user_birthday = findViewById(R.id.user_birthday);
         user_id = findViewById(R.id.user_id);
+
+        btnNext = initTitleNext();
+        btnNext.setVisibility(View.VISIBLE);
+        btnNext.setOnClickListener(this);
     }
 
     private void initData() {
@@ -152,6 +165,9 @@ public class ProfileActivity2 extends AppBaseActivity {
             return;
         }
         switch (view.getId()) {
+            case R.id.btn_next:
+                intentActivity(SettingsActivity.class);
+                break;
             case R.id.rl_user_photo_area:
                 selectPhotoFrom();
                 break;
@@ -220,7 +236,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      */
     private void getPhotoUpUrl(Bitmap resultBitmap) {
         loadingDialog = showLoading();
-        UserSdk.getPhotoUpUrl(ProfileActivity2.this, GlobalApplication.getApplication().getSID(), new UserSdkCallBack() {
+        UserSdk.getPhotoUpUrl(ProfileActivity2.this, AppGlobalUtil.getInstance().getSID(), new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 if (TextUtils.equals(code, UserSdk.LOCAL_PAY_SUCCESS)) {
@@ -437,7 +453,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      */
     private void getUserinfo() {
         loadingDialog = showLoading();
-        UserInfoReq request = new UserInfoReq(GlobalApplication.getApplication().getSID());
+        UserInfoReq request = new UserInfoReq(AppGlobalUtil.getInstance().getSID() ,  AppGlobalUtil.getInstance().getLoginName());
         HttpReqApp.getInstance().onUserInfo(request, new HttpReqTaskListener() {
 
             @Override
@@ -454,6 +470,18 @@ public class ProfileActivity2 extends AppBaseActivity {
                 loadingDialog.dismiss();
             }
         });
+    }
+
+    /**
+     * 跳转到其他activity
+     * @param cls
+     */
+    private void intentActivity(Class<?> cls) {
+        if (cls == null) {
+            return;
+        }
+        Intent intent = new Intent(ProfileActivity2.this, cls);
+        startActivity(intent);
     }
 
 }

@@ -55,4 +55,8 @@ public class PayCodeUseQueryReq extends Request {
         LogUtil.e("PayAuthCodeUseQuery", json.toString());
         return json;
     }
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

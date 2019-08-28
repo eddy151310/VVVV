@@ -170,7 +170,7 @@ public class AccountSdkMain {
                     //校验支付密码成功, 打开绑定银行账户界面
                     Intent intent = new Intent(context, AddBankAccountActivity.class);
                     intent.putExtra(Constants.LOCAL_TOKEN_KEY, token);
-                    intent.putExtra(Constants.LOCAL_KEY_SID, sid);
+                    intent.putExtra(Constants.SP_KEY_SID, sid);
                     context.startActivity(intent);
                 }
             }

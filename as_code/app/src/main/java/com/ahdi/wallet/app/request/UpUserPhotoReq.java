@@ -28,6 +28,11 @@ public class UpUserPhotoReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
     public String getUpURL() {
         return upURL;
     }

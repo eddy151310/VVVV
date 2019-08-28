@@ -47,4 +47,9 @@ public class BcaOTPReq extends Request {
         LogUtil.e(TAG, "BcaOTPReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

@@ -23,4 +23,9 @@ public class CloseTouchIDPayReq extends Request {
         LogUtil.e("CloseTouchIDPayReq", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

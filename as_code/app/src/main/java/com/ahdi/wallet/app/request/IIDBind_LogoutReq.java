@@ -25,4 +25,9 @@ public class IIDBind_LogoutReq extends Request {
         }
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

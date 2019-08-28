@@ -19,4 +19,9 @@ public class ProfileReq extends Request {
         LogUtil.e("ProfileReq", "ProfileReq:" + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

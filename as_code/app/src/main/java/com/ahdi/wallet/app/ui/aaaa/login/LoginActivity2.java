@@ -231,10 +231,11 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
      * 登录(SMS)
      */
     private void login(@NonNull String smsCode) {
-        loadingDialog = showLoading();
         LogUtil.d(TAG, "执行登录");
+        String loginName = phoneEdit.getText().toString().trim();
         if(smsCodeRsp != null && !TextUtils.isEmpty(smsCodeRsp.orderId)){
-            LoginSMSReq request = new LoginSMSReq(phoneEdit.getText().toString().trim() ,smsCode , smsCodeRsp.orderId);
+            loadingDialog = showLoading();
+            LoginSMSReq request = new LoginSMSReq( loginName ,smsCode , smsCodeRsp.orderId);
             HttpReqApp.getInstance().onLoginSMS(request, new HttpReqTaskListener() {
 
                 @Override
@@ -244,8 +245,10 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
                     ToastUtil.showToastAtCenterLong(LoginActivity2.this , smsCodeRsp.getmHeader().retCode + smsCodeRsp.getmHeader().retMsg );
                     LoginSMSRsp responseLogin = LoginSMSRsp.decodeJson(LoginSMSRsp.class ,json);
                     if(responseLogin.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
-                        GlobalApplication.getApplication().setSID(responseLogin.sid);
-                        GlobalApplication.getApplication().setUserID(responseLogin.userId);
+                        AppGlobalUtil.getInstance().setSID(responseLogin.sid);
+                        AppGlobalUtil.getInstance().setUserID(responseLogin.userId);
+                        AppGlobalUtil.getInstance().setLoginName(loginName);
+                        gotoMainActivity();
                     }
 
                 }

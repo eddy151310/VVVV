@@ -39,4 +39,9 @@ public class UnBindCardReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

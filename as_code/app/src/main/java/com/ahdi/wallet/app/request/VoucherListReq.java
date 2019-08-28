@@ -45,4 +45,8 @@ public class VoucherListReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

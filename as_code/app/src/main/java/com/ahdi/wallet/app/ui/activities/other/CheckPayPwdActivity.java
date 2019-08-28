@@ -72,7 +72,7 @@ public class CheckPayPwdActivity extends AppBaseActivity {
 
     private void initIntentData(Intent intent) {
         if (intent != null) {
-            sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
+            sid = intent.getStringExtra(Constants.SP_KEY_SID);
             ttype = intent.getIntExtra(Constants.LOCAL_TTYPE_KEY, -1);
         }
     }

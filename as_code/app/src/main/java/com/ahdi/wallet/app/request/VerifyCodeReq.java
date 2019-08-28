@@ -67,4 +67,9 @@ public class VerifyCodeReq extends Request {
         LogUtil.e("SmsCodeReq", "SmsCodeReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

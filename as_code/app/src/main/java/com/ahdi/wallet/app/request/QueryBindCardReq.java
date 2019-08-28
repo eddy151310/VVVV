@@ -31,4 +31,9 @@ public class QueryBindCardReq extends Request {
         LogUtil.e("QueryBindCardReq", "QueryBindCardReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

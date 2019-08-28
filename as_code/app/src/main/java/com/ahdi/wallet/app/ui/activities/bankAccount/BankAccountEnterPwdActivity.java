@@ -40,7 +40,7 @@ public class BankAccountEnterPwdActivity extends AppBaseActivity {
     private void initIntentData() {
         Intent intent = getIntent();
         if (intent != null) {
-            sid = intent.getStringExtra(Constants.LOCAL_KEY_SID);
+            sid = intent.getStringExtra(Constants.SP_KEY_SID);
             bid = intent.getStringExtra(Constants.LOCAL_BID_KEY);
         }
     }

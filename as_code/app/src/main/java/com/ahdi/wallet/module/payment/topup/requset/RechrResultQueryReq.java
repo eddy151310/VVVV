@@ -38,4 +38,9 @@ public class RechrResultQueryReq extends Request {
         LogUtil.e(TAG, "充值结果查询: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

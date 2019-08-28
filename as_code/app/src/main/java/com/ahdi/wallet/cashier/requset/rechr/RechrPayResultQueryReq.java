@@ -38,4 +38,8 @@ public class RechrPayResultQueryReq extends Request {
         LogUtil.e(TAG, "充值支付结果查询: " + json.toString());
         return json;
     }
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

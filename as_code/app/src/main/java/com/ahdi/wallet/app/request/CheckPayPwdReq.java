@@ -38,4 +38,9 @@ public class CheckPayPwdReq extends Request {
         LogUtil.e("CheckPayPwdReq", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

@@ -1021,7 +1021,7 @@ public class PayHubActivity extends PayBaseActivity {
             return;
         }
         Intent intent = new Intent(mContext, PayhubBcaOTPActivity.class);
-        intent.putExtra(Constants.LOCAL_KEY_SID, sid);
+        intent.putExtra(Constants.SP_KEY_SID, sid);
         intent.putExtra(Constants.LOCAL_FROM_KEY, from);
 
         if (from == Constants.LOCAL_FROM_PAY) {

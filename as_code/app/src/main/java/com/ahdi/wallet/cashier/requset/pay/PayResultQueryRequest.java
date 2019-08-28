@@ -43,4 +43,9 @@ public class PayResultQueryRequest extends Request {
         LogUtil.e("PayResultQueryRequest", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

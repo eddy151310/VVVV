@@ -51,4 +51,9 @@ public class QueryTargetRequest extends Request {
         LogUtil.e(TAG, "查询转账目标请求:" + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

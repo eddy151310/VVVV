@@ -43,4 +43,9 @@ public class ResetPayPwdReq extends Request {
         LogUtil.e("resetPayPwdRequest", "resetPayPwdRequest: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

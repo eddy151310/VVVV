@@ -47,6 +47,11 @@ public class AppGlobalUtil {
     private String aesPrivateKey;       // aeskey后续用来解密申请绑卡的信息
     private String bcaUserAgent;
 
+
+    private String sid ;
+    private String userID ;
+    private String loginName ;
+
     public Context getContext() {
         return context;
     }
@@ -280,5 +285,41 @@ public class AppGlobalUtil {
 
     public String getLName(Context context) {
         return getString(context, Constants.LOCAL_LNAME_KEY);
+    }
+
+
+    public void setSID(String sid){
+        this.sid = sid ;
+        putString(context , Constants.SP_KEY_SID,sid );
+    }
+
+    public String getSID() {
+        if(TextUtils.isEmpty(sid)){
+            sid =  getString(context ,Constants.SP_KEY_SID);
+        }
+        return sid;
+    }
+    public void setUserID(String userID){
+        this.userID = userID ;
+        putString(context , Constants.SP_KEY_USER_ID,userID );
+    }
+
+    public String getUserID() {
+        if(TextUtils.isEmpty(userID)){
+            userID =  getString(context ,Constants.SP_KEY_USER_ID);
+        }
+        return userID;
+    }
+
+    public void setLoginName(String loginName){
+        this.loginName = loginName ;
+        putString(context , Constants.SP_KEY_LOGIN_NAME,loginName );
+    }
+
+    public String getLoginName() {
+        if(TextUtils.isEmpty(loginName)){
+            loginName =  getString(context ,Constants.SP_KEY_LOGIN_NAME);
+        }
+        return loginName;
     }
 }

@@ -39,4 +39,9 @@ public class LoginReq extends Request {
         LogUtil.e("LoginReq", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

@@ -10,7 +10,9 @@ public interface Constants {
     String RET_CODE_KEY = "retCode";
     String RET_CODE_SUCCESS = "0000";
 
-    String LOCAL_KEY_SID = "SID";
+    String SP_KEY_SID = "sid";
+    String SP_KEY_LOGIN_NAME = "loginName";
+    String SP_KEY_USER_ID = "userID";
 
 
 

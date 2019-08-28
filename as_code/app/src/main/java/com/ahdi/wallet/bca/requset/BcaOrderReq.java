@@ -56,4 +56,9 @@ public class BcaOrderReq extends Request {
         LogUtil.e(TAG, "BcaOrderReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

@@ -45,4 +45,9 @@ public class TransListReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

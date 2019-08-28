@@ -71,5 +71,8 @@ public class RechrOrderReq extends Request {
         LogUtil.e("RechrOrderReq", "RechrOrderReq: " + json.toString());
         return json;
     }
-
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

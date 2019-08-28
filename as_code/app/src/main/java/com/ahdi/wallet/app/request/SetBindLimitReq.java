@@ -41,4 +41,9 @@ public class SetBindLimitReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

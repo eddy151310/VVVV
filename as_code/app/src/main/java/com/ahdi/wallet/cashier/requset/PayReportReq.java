@@ -49,6 +49,11 @@ public class PayReportReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
     private JSONObject buildReportData() throws JSONException {
 
         if (reportData == null) {

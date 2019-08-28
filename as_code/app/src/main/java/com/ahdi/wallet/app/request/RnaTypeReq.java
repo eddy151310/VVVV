@@ -34,4 +34,9 @@ public class RnaTypeReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

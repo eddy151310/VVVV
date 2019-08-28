@@ -33,4 +33,9 @@ public class CollectQRCodeReq extends Request {
         return json;
     }
 
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
+
 }

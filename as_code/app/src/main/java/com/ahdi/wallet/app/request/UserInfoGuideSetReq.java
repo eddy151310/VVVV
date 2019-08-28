@@ -58,4 +58,9 @@ public class UserInfoGuideSetReq extends Request {
         LogUtil.e("UserInfoGuideSet", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

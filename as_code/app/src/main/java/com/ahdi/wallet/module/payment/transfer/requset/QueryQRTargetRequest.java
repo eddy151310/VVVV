@@ -36,4 +36,9 @@ public class QueryQRTargetRequest extends Request {
         LogUtil.e(TAG, "requestParam = " + requestParam);
         return requestParam;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

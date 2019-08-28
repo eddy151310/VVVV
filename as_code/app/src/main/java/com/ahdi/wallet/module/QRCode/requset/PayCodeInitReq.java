@@ -45,4 +45,9 @@ public class PayCodeInitReq extends Request {
         LogUtil.e("PayCodeInitReq", json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

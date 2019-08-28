@@ -45,4 +45,9 @@ public class RegisterReq extends Request {
         LogUtil.e("RegisterReq", "Register set lp Request: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

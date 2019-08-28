@@ -40,4 +40,9 @@ public class SetUserIconReq extends Request {
         LogUtil.e(TAG, TAG + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

@@ -29,7 +29,6 @@ public class GlobalApplication extends MultiDexApplication {
 
 
     private String sid ;
-    private String userID ;
 
     private ActivityLifeCallBack activityLifeCallBack = null;
     private UserData userData;
@@ -64,21 +63,14 @@ public class GlobalApplication extends MultiDexApplication {
 
     public void setSID(String sid){
         this.sid = sid ;
-        AppGlobalUtil.getInstance().putString(this , Constants.LOCAL_KEY_SID,sid );
+        AppGlobalUtil.getInstance().putString(this , Constants.SP_KEY_SID,sid );
     }
 
     public String getSID() {
         if(TextUtils.isEmpty(sid)){
-            sid =  AppGlobalUtil.getInstance().getString(this ,Constants.LOCAL_KEY_SID );
+            sid =  AppGlobalUtil.getInstance().getString(this ,Constants.SP_KEY_SID);
         }
         return sid;
-    }
-    public void setUserID(String userID){
-        this.userID = userID ;
-    }
-
-    public String getUserID() {
-        return userID;
     }
 
     public void updateUserSchema(UserSchema userSchema) {

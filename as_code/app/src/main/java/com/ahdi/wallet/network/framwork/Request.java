@@ -28,13 +28,24 @@ public abstract class Request {
     }
 
     protected abstract JSONObject bodyWriteTo(JSONObject json);
+    protected abstract JSONObject getContentJson();
 
     public String execute() {
         try {
 
-            JSONObject json = new JSONObject();
-            JSONObject contentJson = bodyWriteTo(mHeader.writeTo(json));
-            return contentJson.toString();
+            JSONObject jsonRequest = new JSONObject();
+
+
+            JSONObject content  = getContentJson();
+
+            JSONObject body = new JSONObject();
+            body.put(CONTENT , content); //body包含的第一部分 content
+            body.put(CONTENT_SIGN, md5WithContent(content.toString()));//body包含的第二部分 contentSign
+
+            jsonRequest.put(BODY ,body );               // 请求内容---body
+            jsonRequest =  mHeader.writeTo(jsonRequest);// 请求内容---header
+            LogUtil.d("" , "请求参数:" + jsonRequest.toString());
+            return jsonRequest.toString();
         } catch (Exception e) {
             e.printStackTrace();
             LogUtil.e(TAG, "error:" + e.toString());

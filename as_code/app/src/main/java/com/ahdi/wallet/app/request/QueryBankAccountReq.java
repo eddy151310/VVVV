@@ -31,4 +31,9 @@ public class QueryBankAccountReq extends Request {
         LogUtil.e("QueryBankAccountReq", "QueryBankAccountReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

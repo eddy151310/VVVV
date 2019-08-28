@@ -262,7 +262,7 @@ public class SettingsActivity extends AppBaseActivity {
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
             }
         });
-        CleanConfigUtil.cleanAllConfig();//清理登录信息
+        CleanConfigUtil.cleanLoginInfo();//清理登录信息
         ActivityManager.getInstance().openLoginActivity(this);
     }
 

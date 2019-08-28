@@ -47,5 +47,8 @@ public class RechrListQueryReq extends Request {
         LogUtil.e("RechrListQueryReq", "RechrListQueryReq: " + json.toString());
         return json;
     }
-
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

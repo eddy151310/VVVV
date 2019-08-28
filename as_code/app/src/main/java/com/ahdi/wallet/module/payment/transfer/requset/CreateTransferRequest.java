@@ -58,4 +58,9 @@ public class CreateTransferRequest extends Request {
         LogUtil.e(TAG, json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }

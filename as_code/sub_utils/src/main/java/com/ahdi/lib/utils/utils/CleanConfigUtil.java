@@ -23,7 +23,7 @@ public class CleanConfigUtil {
      * 清理DC
      */
     public static void cleanVoucher() {
-        AppGlobalUtil.getInstance().removeKey(AppGlobalUtil.getInstance().getContext(), Constants.LOCAL_VOUCHER_KEY);
+        AppGlobalUtil.getInstance().removeKey(AppGlobalUtil.getInstance().getContext(), Constants.SP_KEY_SID);
     }
 
 
@@ -44,5 +44,12 @@ public class CleanConfigUtil {
     public static void cleanProfileUserManager(){
         ProfileUserUtil.getInstance().cleanAccountUserData();
     }
+
+    public static void cleanLoginInfo() {
+        AppGlobalUtil.getInstance().removeKey(AppGlobalUtil.getInstance().getContext(), Constants.SP_KEY_SID);
+        AppGlobalUtil.getInstance().removeKey(AppGlobalUtil.getInstance().getContext(), Constants.SP_KEY_LOGIN_NAME);
+        AppGlobalUtil.getInstance().removeKey(AppGlobalUtil.getInstance().getContext(), Constants.SP_KEY_USER_ID);
+    }
+
 
 }

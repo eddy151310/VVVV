@@ -42,4 +42,9 @@ public class SetPayPwdReq extends Request {
         LogUtil.e("SetPayPwdReq", "SetPayPwdReq: " + json.toString());
         return json;
     }
+
+    @Override
+    protected JSONObject getContentJson() {
+        return null;
+    }
 }
