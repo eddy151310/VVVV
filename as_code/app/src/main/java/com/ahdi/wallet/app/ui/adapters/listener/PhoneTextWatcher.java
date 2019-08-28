@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-import com.ahdi.wallet.app.bean.PhoneAreaCodeBean;
 import com.ahdi.lib.utils.config.ConfigCountry;
 
 /**
@@ -111,7 +110,7 @@ public class PhoneTextWatcher implements TextWatcher {
     private InputFilter.LengthFilter getThirteenFilter() {
 
         if (phoneThirteenFilter == null) {
-            phoneThirteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_13);
+            phoneThirteenFilter = new InputFilter.LengthFilter(ConfigCountry.PHONE_LIMIT_MAX_LENGTH_11);
         }
         return phoneThirteenFilter;
     }

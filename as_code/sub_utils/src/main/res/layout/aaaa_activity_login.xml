@@ -92,6 +92,7 @@
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_alignParentRight="true"
                     android:enabled="false"
+                    android:padding="@dimen/dp_5"
                     android:layout_centerVertical="true"
                     android:textColor="@color/CC_282934"
                     android:text="验证码"

@@ -40,7 +40,6 @@ import com.ahdi.lib.utils.utils.StatusBarUtil;
 import com.ahdi.lib.utils.widgets.DeleteEditText;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.dialog.LoadingDialog;
-import com.ahdi.wallet.GlobalApplication;
 import com.ahdi.wallet.R;
 import com.ahdi.wallet.app.HttpReqApp;
 import com.ahdi.wallet.app.request.aaa.LoginSMSReq;
@@ -177,7 +176,7 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
             return false;
         }
 
-        if (loginName.length() >= ConfigCountry.PHONE_LIMIT_MIN_LENGTH_8 && loginName.length() <= ConfigCountry.PHONE_LIMIT_MAX_LENGTH_13  ) {
+        if (loginName.length() == ConfigCountry.PHONE_LIMIT_MAX_LENGTH_11) {
             return true;
         }
 
@@ -220,10 +219,19 @@ public class LoginActivity2 extends AppBaseActivity implements View.OnClickListe
             return;
         }
         if (id == R.id.tv_send_code){
-            getSMSCode();
+            if(verifyAccount()){
+                getSMSCode();
+            }else{
+                ToastUtil.showToastAtCenterLong(LoginActivity2.this , "手机号不正确");
+            }
         }else if (id == R.id.btn_submit) {
             closeSoftInput();
-            login(codeEdit.getText().toString().trim());
+            if(verifyAccount() && verifyCode() ){
+                login(codeEdit.getText().toString().trim());
+            }else{
+                ToastUtil.showToastAtCenterLong(LoginActivity2.this , "手机号或验证码不正确");
+            }
+
         }
     }
 
