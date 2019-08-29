@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AV\\V1.0.0\\VVVV\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-v19\\values-v19.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-v19\\values-v19.xml",
             "map": [
                 {
-                    "source": "D:\\AV\\V1.0.0\\VVVV\\as_code\\sub_utils\\build\\intermediates\\packaged_res\\devtest\\clientdebug\\values-v19\\values-v19.xml",
+                    "source": "D:\\AV\\V1.0.0\\as_code\\sub_utils\\build\\intermediates\\packaged_res\\devtest\\clientdebug\\values-v19\\values-v19.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

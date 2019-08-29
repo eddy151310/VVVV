@@ -2,7 +2,6 @@ package com.ahdi.wallet.app.request.aaa;
 
 import android.text.TextUtils;
 
-import com.ahdi.lib.utils.utils.LogUtil;
 import com.ahdi.wallet.network.framwork.Request;
 
 import org.json.JSONException;
@@ -12,14 +11,14 @@ import org.json.JSONObject;
  * Author: ibb
  * Description:
  */
-public class UserInfoReq extends Request {
+public class UserCenterReq extends Request {
 
-    private static final String TAG = UserInfoReq.class.getSimpleName();
+    private static final String TAG = UserCenterReq.class.getSimpleName();
 
     private String sid;
     private String moblie;
 
-    public UserInfoReq(String sid , String moblie) {
+    public UserCenterReq(String sid , String moblie) {
         this.sid = sid;
         this.moblie = moblie;
     }

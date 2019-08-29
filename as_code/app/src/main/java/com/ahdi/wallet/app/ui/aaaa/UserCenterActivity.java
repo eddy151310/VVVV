@@ -1,6 +1,7 @@
 package com.ahdi.wallet.app.ui.aaaa;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,7 +25,6 @@ import com.ahdi.lib.utils.utils.DateUtil;
 import com.ahdi.lib.utils.utils.LogUtil;
 import com.ahdi.lib.utils.utils.ProfileUserUtil;
 import com.ahdi.lib.utils.utils.StringUtil;
-import com.ahdi.lib.utils.widgets.CheckSafety;
 import com.ahdi.lib.utils.widgets.ToastUtil;
 import com.ahdi.lib.utils.widgets.datepicker.DatePickerView;
 import com.ahdi.lib.utils.widgets.dialog.ListSelectDialog;
@@ -34,20 +34,18 @@ import com.ahdi.wallet.R;
 import com.ahdi.wallet.app.HttpReqApp;
 import com.ahdi.wallet.app.callback.UserSdkCallBack;
 import com.ahdi.wallet.app.main.AppMain;
-import com.ahdi.wallet.app.request.aaa.UserInfoReq;
+import com.ahdi.wallet.app.request.aaa.UserCenterReq;
 import com.ahdi.wallet.app.response.GetPhotoUpUrlRsp;
 import com.ahdi.wallet.app.response.UpUserPhotoRsp;
 import com.ahdi.wallet.app.response.UpdateUserInfoRsp;
-import com.ahdi.wallet.app.response.aaa.UserInfoRsp;
+import com.ahdi.wallet.app.response.aaa.UserCenterRsp;
 import com.ahdi.wallet.app.schemas.AvatarSchema;
 import com.ahdi.wallet.app.schemas.UserSchema;
 import com.ahdi.wallet.app.sdk.UserSdk;
-import com.ahdi.wallet.app.ui.activities.bankAccount.BankAccountActivity;
-import com.ahdi.wallet.app.ui.activities.bankCard.BankCardsActivity;
 import com.ahdi.wallet.app.ui.activities.other.SettingsActivity;
-import com.ahdi.wallet.app.ui.activities.payPwd.PayPwdGuideSetActivity;
 import com.ahdi.wallet.app.ui.activities.userInfo.ModifyUserInfoActivity;
 import com.ahdi.wallet.app.ui.widgets.SelectPhotoView;
+import com.ahdi.wallet.databinding.AaaActivityUserCenterBinding;
 
 import org.json.JSONObject;
 
@@ -56,16 +54,11 @@ import java.util.ArrayList;
 /**
  * 用户信息页面
  *
- * @author zhaohe
+ * @author ibb
  */
-public class ProfileActivity2 extends AppBaseActivity {
+public class UserCenterActivity extends AppBaseActivity {
 
     private static final String TAG = "ProfileActivity";
-
-    private RelativeLayout rl_user_photo_area;
-    private LinearLayout rl_user_name_area, ll_user_gender_area, ll_user_email_area, ll_user_birth_area;
-    private TextView user_nname, user_phone, user_id, user_gender, user_email, user_birthday;
-    private ImageView iv_user_photo;
 
     private LoadingDialog loadingDialog = null;
     /**
@@ -84,38 +77,21 @@ public class ProfileActivity2 extends AppBaseActivity {
 
     private Button btnNext  ;
 
+    AaaActivityUserCenterBinding dataBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (isMemoryRecover(savedInstanceState)) {
             return;
         }
-        setContentView(R.layout.activity_profile);
+        dataBinding =  DataBindingUtil.setContentView(this, R.layout.aaa_activity_user_center);
         initCommonTitle(getString(R.string.Profile_A0));
         initView();
-        getUserinfo();
+        getUserCenterInfo();
     }
 
     public void initView() {
-        rl_user_photo_area = findViewById(R.id.rl_user_photo_area);
-        rl_user_name_area = findViewById(R.id.rl_user_name_area);
-        ll_user_gender_area = findViewById(R.id.ll_user_gender_area);
-        ll_user_email_area = findViewById(R.id.ll_user_email_area);
-        ll_user_birth_area = findViewById(R.id.ll_user_birth_area);
-        rl_user_photo_area.setOnClickListener(this);
-        rl_user_name_area.setOnClickListener(this);
-        ll_user_gender_area.setOnClickListener(this);
-        ll_user_email_area.setOnClickListener(this);
-        ll_user_birth_area.setOnClickListener(this);
-
-        iv_user_photo = findViewById(R.id.iv_user_photo);
-        user_nname = findViewById(R.id.user_nname);
-        user_gender = findViewById(R.id.user_gender);
-        user_phone = findViewById(R.id.user_phone);
-        user_email = findViewById(R.id.user_email);
-        user_birthday = findViewById(R.id.user_birthday);
-        user_id = findViewById(R.id.user_id);
-
         btnNext = initTitleNext();
         btnNext.setVisibility(View.VISIBLE);
         btnNext.setOnClickListener(this);
@@ -127,29 +103,9 @@ public class ProfileActivity2 extends AppBaseActivity {
         if (userData == null) {
             return;
         }
-        if (!TextUtils.isEmpty(userData.getAvatar())) {
-            ImageDownUtil.downMySelfPhoto(ProfileActivity2.this, userData.getAvatar(), iv_user_photo);
-        }
-        user_nname.setText(userData.getNName());
-        user_phone.setText(userData.getsLName());
-        user_id.setText(userData.getUID());
-        if (!TextUtils.isEmpty(userData.getEmail())) {
-            user_email.setHint("");
-            user_email.setText(userData.getEmail());
-        }
-        String birthday = userData.getBirthday();
-        if (!TextUtils.isEmpty(birthday)) {
-            user_birthday.setHint("");
-            user_birthday.setText(birthday);
-        }
-        gender = userData.getGender();
-        if (gender == Constants.LOCAL_GENDER_FEMALE) {
-            user_gender.setHint("");
-            user_gender.setText(R.string.Profile_F0);
-        } else if (gender == Constants.LOCAL_GENDER_MALE) {
-            user_gender.setHint("");
-            user_gender.setText(R.string.Profile_G0);
-        }
+//        if (!TextUtils.isEmpty(userData.getAvatar())) {
+//            ImageDownUtil.downMySelfPhoto(UserCenterActivity.this, userData.getAvatar(), iv_user_photo);
+//        }
     }
 
     @Override
@@ -191,7 +147,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      * 选择图片
      */
     private void selectPhotoFrom() {
-        selectPhotoView = new SelectPhotoView(ProfileActivity2.this);
+        selectPhotoView = new SelectPhotoView(UserCenterActivity.this);
         selectPhotoView.show();
         selectPhotoView.setListener(new SelectPhotoView.SelectPhotoListener() {
             @Override
@@ -213,7 +169,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      * @param type
      */
     private void getPhoto(int type) {
-        TakePhotoMain.getInstance().takePhoto(ProfileActivity2.this, type, new TakePhotoCallBack() {
+        TakePhotoMain.getInstance().takePhoto(UserCenterActivity.this, type, new TakePhotoCallBack() {
 
             @Override
             public void onResult(String Code, int type, String reason, Bitmap resultBitmap, String photoPath) {
@@ -235,7 +191,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      */
     private void getPhotoUpUrl(Bitmap resultBitmap) {
         loadingDialog = showLoading();
-        UserSdk.getPhotoUpUrl(ProfileActivity2.this, AppGlobalUtil.getInstance().getSID(), new UserSdkCallBack() {
+        UserSdk.getPhotoUpUrl(UserCenterActivity.this, AppGlobalUtil.getInstance().getSID(), new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 if (TextUtils.equals(code, UserSdk.LOCAL_PAY_SUCCESS)) {
@@ -248,7 +204,7 @@ public class ProfileActivity2 extends AppBaseActivity {
                 } else {
                     closeLoading(loadingDialog);
                     if (TextUtils.equals(code, Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION)) {
-                        ToastUtil.showToastShort(ProfileActivity2.this, errorMsg);
+                        ToastUtil.showToastShort(UserCenterActivity.this, errorMsg);
                     } else {
                         showErrorDialog(errorMsg);
                     }
@@ -265,7 +221,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      */
     private void upPhoto(String upUrl, int type, byte[] imgByte) {
 
-        UserSdk.upUserPhoto(ProfileActivity2.this, upUrl, imgByte, new UserSdkCallBack() {
+        UserSdk.upUserPhoto(UserCenterActivity.this, upUrl, imgByte, new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 if (TextUtils.equals(code, UserSdk.LOCAL_PAY_SUCCESS)) {
@@ -278,7 +234,7 @@ public class ProfileActivity2 extends AppBaseActivity {
                 } else {
                     closeLoading(loadingDialog);
                     if (TextUtils.equals(code, Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION)) {
-                        ToastUtil.showToastShort(ProfileActivity2.this, errorMsg);
+                        ToastUtil.showToastShort(UserCenterActivity.this, errorMsg);
                     } else {
                         showErrorDialog(errorMsg);
                     }
@@ -296,7 +252,7 @@ public class ProfileActivity2 extends AppBaseActivity {
     private void setUserIcon(String relativePath, int type) {
 
         AvatarSchema schema = new AvatarSchema(relativePath, type);
-        AppMain.getInstance().setUserIcon(ProfileActivity2.this, schema, new UserSdkCallBack() {
+        AppMain.getInstance().setUserIcon(UserCenterActivity.this, schema, new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 closeLoading(loadingDialog);
@@ -307,7 +263,7 @@ public class ProfileActivity2 extends AppBaseActivity {
                     }
                 } else {
                     if (TextUtils.equals(code, Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION) || TextUtils.equals(code, Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION)) {
-                        ToastUtil.showToastShort(ProfileActivity2.this, errorMsg);
+                        ToastUtil.showToastShort(UserCenterActivity.this, errorMsg);
                     } else {
                         showErrorDialog(errorMsg);
                     }
@@ -397,7 +353,7 @@ public class ProfileActivity2 extends AppBaseActivity {
      * @param type 要修改的内容的种类  Constants.TYPE_MODIFY_NICK_NAME ,Constants.TYPE_MODIFY_EMAIL
      */
     private void modifyUserInfo(int type) {
-        Intent intent = new Intent(ProfileActivity2.this, ModifyUserInfoActivity.class);
+        Intent intent = new Intent(UserCenterActivity.this, ModifyUserInfoActivity.class);
         intent.putExtra(Constants.LOCAL_TYPE_KEY, type);
         startActivity(intent);
     }
@@ -411,7 +367,7 @@ public class ProfileActivity2 extends AppBaseActivity {
     private void updateUserInfo(String content, int type) {
         loadingDialog = showLoading();
 
-        AppMain.getInstance().updateUserInfo(ProfileActivity2.this, content, type, new UserSdkCallBack() {
+        AppMain.getInstance().updateUserInfo(UserCenterActivity.this, content, type, new UserSdkCallBack() {
             @Override
             public void onResult(String code, String errorMsg, JSONObject jsonObject) {
                 closeLoading(loadingDialog);
@@ -422,7 +378,7 @@ public class ProfileActivity2 extends AppBaseActivity {
                     }
                 } else {
                     if (TextUtils.equals(code, Constants.LOCAL_RET_CODE_NETWORK_EXCEPTION)) {
-                        ToastUtil.showToastShort(ProfileActivity2.this, errorMsg);
+                        ToastUtil.showToastShort(UserCenterActivity.this, errorMsg);
                     } else {
                         showErrorDialog(errorMsg);
                     }
@@ -448,19 +404,22 @@ public class ProfileActivity2 extends AppBaseActivity {
 
 
     /**
-     * 获取短信验证码
+     * 获取用户中心相关数据
      */
-    private void getUserinfo() {
+    private void getUserCenterInfo() {
         loadingDialog = showLoading();
-        UserInfoReq request = new UserInfoReq(AppGlobalUtil.getInstance().getSID() ,  AppGlobalUtil.getInstance().getLoginName());
-        HttpReqApp.getInstance().onUserInfo(request, new HttpReqTaskListener() {
+        UserCenterReq request = new UserCenterReq(AppGlobalUtil.getInstance().getSID() ,  AppGlobalUtil.getInstance().getLoginName());
+        HttpReqApp.getInstance().onUserCenterInfo(request, new HttpReqTaskListener() {
 
             @Override
             public void onPostExecute(JSONObject json) {
                 loadingDialog.dismiss();
                 LogUtil.d(TAG,   "解析json :" + json);
-                UserInfoRsp response = UserInfoRsp.decodeJson(UserInfoRsp.class, json);
-                ToastUtil.showToastAtCenterLong(ProfileActivity2.this , response.getmHeader().retCode + response.getmHeader().retMsg );
+                UserCenterRsp response = UserCenterRsp.decodeJson(UserCenterRsp.class, json);
+                ToastUtil.showToastAtCenterLong(UserCenterActivity.this , response.getmHeader().retCode + response.getmHeader().retMsg );
+                if(response.getmHeader().retCode.equals(Constants.RET_CODE_SUCCESS)){
+                    dataBinding.setUserCenterInfo(response);
+                }
             }
 
             @Override
@@ -479,7 +438,7 @@ public class ProfileActivity2 extends AppBaseActivity {
         if (cls == null) {
             return;
         }
-        Intent intent = new Intent(ProfileActivity2.this, cls);
+        Intent intent = new Intent(UserCenterActivity.this, cls);
         startActivity(intent);
     }
 

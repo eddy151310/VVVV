@@ -70,7 +70,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
-            android:name="com.ahdi.wallet.app.ui.aaaa.ProfileActivity2"
+            android:name="com.ahdi.wallet.app.ui.aaaa.UserCenterActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.ahdi.wallet.app.ui.activities.SplashActivity"

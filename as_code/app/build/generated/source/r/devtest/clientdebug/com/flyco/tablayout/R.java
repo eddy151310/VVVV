@@ -62,18 +62,18 @@ public final class R {
         public static final int SELECT = 0x7f09000e;
         public static final int TOP = 0x7f090012;
         public static final int TRIANGLE = 0x7f090013;
-        public static final int iv_tab_icon = 0x7f09011d;
-        public static final int ll_tap = 0x7f090177;
-        public static final int rtv_msg_tip = 0x7f090211;
-        public static final int tv_tab_title = 0x7f090306;
+        public static final int iv_tab_icon = 0x7f09011e;
+        public static final int ll_tap = 0x7f090178;
+        public static final int rtv_msg_tip = 0x7f090218;
+        public static final int tv_tab_title = 0x7f090312;
     }
     public static final class layout {
-        public static final int layout_tab = 0x7f0b00b0;
-        public static final int layout_tab_bottom = 0x7f0b00b1;
-        public static final int layout_tab_left = 0x7f0b00b2;
-        public static final int layout_tab_right = 0x7f0b00b3;
-        public static final int layout_tab_segment = 0x7f0b00b4;
-        public static final int layout_tab_top = 0x7f0b00b5;
+        public static final int layout_tab = 0x7f0b00b1;
+        public static final int layout_tab_bottom = 0x7f0b00b2;
+        public static final int layout_tab_left = 0x7f0b00b3;
+        public static final int layout_tab_right = 0x7f0b00b4;
+        public static final int layout_tab_segment = 0x7f0b00b5;
+        public static final int layout_tab_top = 0x7f0b00b6;
     }
     public static final class styleable {
         public static final int[] CommonTabLayout = { 0x7f0401e8, 0x7f0401e9, 0x7f0401ea, 0x7f0401eb, 0x7f0401ec, 0x7f0401ed, 0x7f0401ee, 0x7f0401ef, 0x7f0401f0, 0x7f0401f1, 0x7f0401f2, 0x7f0401f3, 0x7f0401f4, 0x7f0401f5, 0x7f0401f6, 0x7f0401f7, 0x7f0401f8, 0x7f0401f9, 0x7f0401fa, 0x7f0401fb, 0x7f0401fc, 0x7f0401fe, 0x7f0401ff, 0x7f040200, 0x7f040201, 0x7f040202, 0x7f040203, 0x7f040204, 0x7f040205, 0x7f040206, 0x7f040207, 0x7f040208 };

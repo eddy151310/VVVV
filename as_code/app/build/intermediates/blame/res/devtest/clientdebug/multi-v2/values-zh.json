@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AV\\V1.0.0\\VVVV\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "D:\\AV\\V1.0.0\\as_code\\app\\build\\intermediates\\incremental\\mergeDevtestClientdebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\zhaohe\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshLayout-1.1.0-alpha-13.aar\\18105a263fdc80bf3b777f51438ba846\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\iapp\\.gradle\\caches\\transforms-1\\files-1.1\\SmartRefreshLayout-1.1.0-alpha-13.aar\\e49b7a0d2ab080be45372617b14ecd4a\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

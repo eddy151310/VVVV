@@ -11,6 +11,12 @@ android {
         }
     }
 
+
+    //Model 的 build.gradle  支持dataBinding
+    dataBinding {
+        enabled = true
+    }
+
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 

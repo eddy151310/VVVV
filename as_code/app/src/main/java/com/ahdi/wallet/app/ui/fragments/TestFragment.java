@@ -30,7 +30,7 @@ import com.ahdi.wallet.app.callback.OtherSdkCallBack;
 import com.ahdi.wallet.app.main.AppMain;
 import com.ahdi.wallet.app.response.BannerInfoRsp;
 import com.ahdi.wallet.app.schemas.BannerSchema;
-import com.ahdi.wallet.app.ui.aaaa.ProfileActivity2;
+import com.ahdi.wallet.app.ui.aaaa.UserCenterActivity;
 import com.ahdi.wallet.app.ui.activities.AppMainActivity;
 import com.ahdi.wallet.app.ui.activities.poi.PoiSearchActivity;
 import com.ahdi.wallet.app.ui.fragments.home.adapter.ViewPageAdapter;
@@ -250,7 +250,7 @@ public class TestFragment extends BaseFragment implements View.OnClickListener {
                 startActivityForResult(intent ,FROM_REQUEST);
                 break;
             case R.id.btn_next:
-                Intent it = new Intent(mActivity, ProfileActivity2.class);
+                Intent it = new Intent(mActivity, UserCenterActivity.class);
                 startActivity(it);
                 break;
         }
